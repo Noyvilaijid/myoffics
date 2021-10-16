@@ -18,4 +18,4 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-//http://192.168.100.12:1337/admin
+//http://192.168.100.12:1337/admi
