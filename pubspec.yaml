@@ -1,0 +1,33 @@
+name: myoffice
+description: A new Flutter project.
+publish_to: 'none'
+version: 1.0.0+1
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  get: ^3.26.0
+  flutter_swiper_null_safety: ^1.0.2
+  http: ^0.13.3
+  cached_network_image: ^3.1.0
+  carousel_slider: ^4.0.0
+  table_calendar: ^2.0.0
+  awesome_dialog: ^1.2.1
+  progress_dialog: ^1.2.4
+  smooth_page_indicator: ^1.0.0+2
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/
+  fonts:
+    - family: times
+      fonts:
+        - asset: fonts/times.ttf
+    - family: Phetsarath-OT
+      fonts:
+        - asset: fonts/Phetsarath-OT.ttf
