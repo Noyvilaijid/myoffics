@@ -1,9 +1,10 @@
-import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:myoffice/controller/service.dart';
 import 'package:http/http.dart' as http;
 import 'package:myoffice/models/aboutmd.dart';
 import 'package:myoffice/responsive/runningapprespon.dart';
+import 'package:myoffice/theme/theme.dart';
 
 class AboutPage extends StatefulWidget {
   const AboutPage({Key key}) : super(key: key);
@@ -19,7 +20,7 @@ class _AboutPageState extends State<AboutPage> {
       var data = await http.get(Uri.parse('$url/abouts'));
       if (data.statusCode == 200) {
         var jsonData = data.body;
-       // var list = json.decode(jsonData) as List;
+        // var list = json.decode(jsonData) as List;
         //  List<AboutMd> values = list.map((e) => AboutMd.fromJson(e)).toList();
         List<AboutMd> listimage = aboutMdFromJson(jsonData);
         return listimage;
@@ -62,7 +63,7 @@ class _AboutPageState extends State<AboutPage> {
                         ),
                         TextTitle(
                           text: about[index].title,
-                          color: Colors.black,
+                          color: colorback,
                           size: 22,
                           fontWeight: FontWeight.bold,
                           font: 'Phetsarath-OT',
@@ -72,14 +73,14 @@ class _AboutPageState extends State<AboutPage> {
                         ),
                         TextTitle(
                           text: about[index].company.toUpperCase(),
-                          color: Colors.black,
+                          color: colorback,
                           size: 18,
                           fontWeight: FontWeight.bold,
                           font: 'times',
                         ),
                         TextTitle(
                           text: about[index].content,
-                          color: Colors.black,
+                          color: colorback,
                           size: 16,
                           fontWeight: FontWeight.normal,
                           font: 'Phetsarath-OT',
@@ -110,7 +111,7 @@ class _AboutPageState extends State<AboutPage> {
                           ),
                           TextTitle(
                             text: item.title,
-                            color: Colors.black,
+                            color: colorback,
                             size: 25,
                             fontWeight: FontWeight.bold,
                             font: 'Phetsarath-OT',
@@ -120,14 +121,14 @@ class _AboutPageState extends State<AboutPage> {
                           ),
                           TextTitle(
                             text: item.company.toUpperCase(),
-                            color: Colors.black,
+                            color: colorback,
                             size: 25,
                             fontWeight: FontWeight.bold,
                             font: 'times',
                           ),
                           TextTitle(
                             text: item.content,
-                            color: Colors.black,
+                            color: colorback,
                             size: 20,
                             fontWeight: FontWeight.normal,
                             font: 'Phetsarath-OT',
@@ -151,7 +152,7 @@ class _AboutPageState extends State<AboutPage> {
                 itemBuilder: (context, index) {
                   AboutMd item = about[index];
                   return Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 100),
+                    padding: const EdgeInsets.symmetric(horizontal: 150),
                     child: Container(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -162,7 +163,7 @@ class _AboutPageState extends State<AboutPage> {
                           ),
                           TextTitle(
                             text: item.title,
-                            color: Colors.black,
+                            color: colorback,
                             size: 25,
                             fontWeight: FontWeight.bold,
                             font: 'Phetsarath-OT',
@@ -172,14 +173,14 @@ class _AboutPageState extends State<AboutPage> {
                           ),
                           TextTitle(
                             text: item.company.toUpperCase(),
-                            color: Colors.black,
+                            color: colorback,
                             size: 25,
                             fontWeight: FontWeight.bold,
                             font: 'times',
                           ),
                           TextTitle(
                             text: item.content,
-                            color: Colors.black,
+                            color: colorback,
                             size: 20,
                             fontWeight: FontWeight.normal,
                             font: 'Phetsarath-OT',

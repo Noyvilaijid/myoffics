@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'dart:convert';
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
@@ -281,6 +283,7 @@ class _MeetingPageState extends State<MeetingPage> {
                               SizedBox(
                                 height: 20,
                               ),
+                           
                               RaisedButton(
                                 onPressed: () {
                                   if (_forekey.currentState.validate()) {
@@ -351,7 +354,7 @@ class _MeetingPageState extends State<MeetingPage> {
                                             });
                                   }
                                 },
-                                color: secondcolor,
+                                color: colorgray,
                                 child: Text("ສົ່ງຂໍ້ມູນ",
                                     style: TextStyle(
                                         fontFamily: 'Phetsarath-OT',
@@ -386,7 +389,7 @@ class _MeetingPageState extends State<MeetingPage> {
             ),
           ),
           tablet: Padding(
-            padding: const EdgeInsets.only(left: 10, right: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 100),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -689,7 +692,7 @@ class _MeetingPageState extends State<MeetingPage> {
                                                   });
                                         }
                                       },
-                                      color: secondcolor,
+                                      color: colorgray,
                                       child: Text("ສົ່ງຂໍ້ມູນ",
                                           style: TextStyle(
                                               fontFamily: 'Phetsarath-OT',
@@ -729,7 +732,7 @@ class _MeetingPageState extends State<MeetingPage> {
             ),
           ),
           pc: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 100),
+            padding: const EdgeInsets.symmetric(horizontal: 150),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -1041,7 +1044,7 @@ class _MeetingPageState extends State<MeetingPage> {
                                                   });
                                         }
                                       },
-                                      color: secondcolor,
+                                      color: colorgray,
                                       child: Text("ສົ່ງຂໍ້ມູນ",
                                           style: TextStyle(
                                               fontFamily: 'Phetsarath-OT',

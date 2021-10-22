@@ -5,6 +5,7 @@ import 'package:myoffice/controller/service.dart';
 import 'package:myoffice/models/pastwork.dart';
 import 'package:myoffice/responsive/runningapprespon.dart';
 import 'package:http/http.dart' as http;
+import 'package:myoffice/theme/theme.dart';
 
 class PastWork extends StatefulWidget {
   const PastWork({Key key}) : super(key: key);
@@ -56,7 +57,7 @@ class _PastWorkState extends State<PastWork> {
                         "ຜົນງານຂອງພວກເຮົາ",
                         style: TextStyle(
                             fontSize: 22,
-                            color: Colors.black,
+                            color: colorback,
                             fontWeight: FontWeight.bold,
                             fontFamily: 'Phetsarath-OT'),
                       ),
@@ -88,7 +89,7 @@ class _PastWorkState extends State<PastWork> {
                                       pastwork[index].title,
                                       style: TextStyle(
                                           fontSize: 16,
-                                          color: Colors.black,
+                                          color: colorback,
                                           fontWeight: FontWeight.bold,
                                           fontFamily: 'times'),
                                     ),
@@ -96,7 +97,7 @@ class _PastWorkState extends State<PastWork> {
                                       pastwork[index].content,
                                       style: TextStyle(
                                           fontSize: 14,
-                                          color: Colors.black,
+                                          color: colorback,
                                           fontWeight: FontWeight.bold,
                                           fontFamily: 'Phetsarath-OT'),
                                     ),
@@ -128,7 +129,7 @@ class _PastWorkState extends State<PastWork> {
                         "ຜົນງານຂອງພວກເຮົາ",
                         style: TextStyle(
                             fontSize: 22,
-                            color: Colors.black,
+                            color: colorback,
                             fontWeight: FontWeight.bold,
                             fontFamily: 'Phetsarath-OT'),
                       ),
@@ -160,7 +161,7 @@ class _PastWorkState extends State<PastWork> {
                                       pastwork[index].title,
                                       style: TextStyle(
                                           fontSize: 16,
-                                          color: Colors.black,
+                                          color: colorback,
                                           fontWeight: FontWeight.bold,
                                           fontFamily: 'times'),
                                     ),
@@ -168,7 +169,7 @@ class _PastWorkState extends State<PastWork> {
                                       pastwork[index].content,
                                       style: TextStyle(
                                           fontSize: 14,
-                                          color: Colors.black,
+                                          color: colorback,
                                           fontWeight: FontWeight.bold,
                                           fontFamily: 'Phetsarath-OT'),
                                     ),
@@ -189,7 +190,7 @@ class _PastWorkState extends State<PastWork> {
           pc: pastwork.length == 0
               ? Center(child: CircularProgressIndicator())
               : Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 100),
+                  padding: const EdgeInsets.symmetric(horizontal: 150),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -200,7 +201,7 @@ class _PastWorkState extends State<PastWork> {
                         "ຜົນງານຂອງພວກເຮົາ",
                         style: TextStyle(
                             fontSize: 22,
-                            color: Colors.black,
+                            color: colorback,
                             fontWeight: FontWeight.bold,
                             fontFamily: 'Phetsarath-OT'),
                       ),
@@ -232,7 +233,7 @@ class _PastWorkState extends State<PastWork> {
                                       pastwork[index].title,
                                       style: TextStyle(
                                           fontSize: 16,
-                                          color: Colors.black,
+                                          color: colorback,
                                           fontWeight: FontWeight.bold,
                                           fontFamily: 'times'),
                                     ),
@@ -240,7 +241,7 @@ class _PastWorkState extends State<PastWork> {
                                       pastwork[index].content,
                                       style: TextStyle(
                                           fontSize: 14,
-                                          color: Colors.black,
+                                          color: colorback,
                                           fontWeight: FontWeight.bold,
                                           fontFamily: 'Phetsarath-OT'),
                                     ),
@@ -250,7 +251,7 @@ class _PastWorkState extends State<PastWork> {
                             );
                           },
                           options: CarouselOptions(
-                              height: 450,
+                              height: 550,
                               autoPlay: true,
                               // reverse: true,
                               viewportFraction: 1,

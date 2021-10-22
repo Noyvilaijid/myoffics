@@ -45,6 +45,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
     return Scaffold(
       body: SafeArea(
           child: ResponsiveWidget(
@@ -68,8 +69,8 @@ class _HomePageState extends State<HomePage> {
                                 decoration: BoxDecoration(
                                     shape: BoxShape.circle,
                                     color: entry.key == _current
-                                        ? Colors.red
-                                        : colormenu),
+                                        ? colorRED
+                                        : colorblue),
                               ),
                             );
                           }).toList(),
@@ -124,7 +125,7 @@ class _HomePageState extends State<HomePage> {
                                   child: Text(
                                     e.titlepage,
                                     style: TextStyle(
-                                      color: Colors.white,
+                                      color: colorwhite,
                                       fontSize: 20,
                                       fontFamily: 'Phetsarath-OT',
                                     ),
@@ -157,8 +158,8 @@ class _HomePageState extends State<HomePage> {
                                 decoration: BoxDecoration(
                                     shape: BoxShape.circle,
                                     color: entry.key == _current
-                                        ? Colors.black
-                                        : colormenu),
+                                        ? colorback
+                                        : colorblue),
                               ),
                             );
                           }).toList(),
@@ -184,45 +185,43 @@ class _HomePageState extends State<HomePage> {
                       ),
                       items: images.map((e) {
                         return Container(
-                          child: Container(
-                            margin: EdgeInsets.all(5.0),
-                            child: ClipRRect(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(5.0)),
-                                child: Stack(
-                                  children: <Widget>[
-                                    CachedNetworkImage(
-                                      imageUrl: url + e.localimage[0].url,
-                                      imageBuilder: (context, imageProvider) =>
-                                          Container(
-                                        decoration: BoxDecoration(
-                                          image: DecorationImage(
-                                            image: imageProvider,
-                                            fit: BoxFit.fill,
-                                          ),
-                                        ),
-                                      ),
-                                      placeholder: (context, url) => Center(
-                                          child: CircularProgressIndicator()),
-                                      errorWidget: (context, url, error) =>
-                                          Icon(Icons.error),
-                                    ),
-                                    Positioned(
-                                      bottom: 20,
-                                      left: 10,
-                                      right: 0.0,
-                                      child: Text(
-                                        e.titlepage,
-                                        style: TextStyle(
-                                          color: Colors.black,
-                                          fontSize: 16,
-                                          fontFamily: 'Phetsarath-OT',
+                          padding: const EdgeInsets.symmetric(horizontal: 100),
+                          child: ClipRRect(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(5.0)),
+                              child: Stack(
+                                children: <Widget>[
+                                  CachedNetworkImage(
+                                    imageUrl: url + e.localimage[0].url,
+                                    imageBuilder: (context, imageProvider) =>
+                                        Container(
+                                      decoration: BoxDecoration(
+                                        image: DecorationImage(
+                                          image: imageProvider,
+                                          fit: BoxFit.fill,
                                         ),
                                       ),
                                     ),
-                                  ],
-                                )),
-                          ),
+                                    placeholder: (context, url) => Center(
+                                        child: CircularProgressIndicator()),
+                                    errorWidget: (context, url, error) =>
+                                        Icon(Icons.error),
+                                  ),
+                                  Positioned(
+                                    bottom: 20,
+                                    left: 10,
+                                    right: 0.0,
+                                    child: Text(
+                                      e.titlepage,
+                                      style: TextStyle(
+                                        color: colorback,
+                                        fontSize: 16,
+                                        fontFamily: 'Phetsarath-OT',
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              )),
                         );
                       }).toList(),
                     )),
@@ -239,27 +238,24 @@ class _HomePageState extends State<HomePage> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: images.asMap().entries.map((entry) {
-                            return GestureDetector(
-                              onTap: () => _controller.animateToPage(entry.key),
-                              child: Container(
-                                width: 12.0,
-                                height: 12.0,
-                                margin: EdgeInsets.symmetric(
-                                    vertical: 8.0, horizontal: 4.0),
-                                decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: entry.key == _current
-                                        ? menuselect
-                                        : Colors.black),
-                              ),
+                            return Container(
+                              width: 12.0,
+                              height: 12.0,
+                              margin: EdgeInsets.symmetric(
+                                  vertical: 8.0, horizontal: 4.0),
+                              decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: entry.key == _current
+                                      ? menuselect
+                                      : colorback),
                             );
                           }).toList(),
                         )),
                   ),
                   Container(
                       margin: EdgeInsets.all(16),
-                      height: 500,
-                      width: double.infinity,
+                      height: 550,
+                      width: width,
                       child: Container(
                           child: CarouselSlider(
                         options: CarouselOptions(
@@ -273,46 +269,50 @@ class _HomePageState extends State<HomePage> {
                             scrollDirection: Axis.horizontal,
                             autoPlay: true,
                             viewportFraction: 1,
-                            height: 450),
+                            height: 540),
                         items: images.map((e) {
-                          return Container(
-                            margin: EdgeInsets.all(5.0),
-                            child: ClipRRect(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(5.0)),
-                                child: Stack(
-                                  children: <Widget>[
-                                    CachedNetworkImage(
-                                      imageUrl: url + e.localimage[0].url,
-                                      imageBuilder: (context, imageProvider) =>
-                                          Container(
-                                        decoration: BoxDecoration(
-                                          image: DecorationImage(
-                                            image: imageProvider,
-                                            fit: BoxFit.fill,
+                          return Padding(
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 150),
+                            child: Container(
+                              child: ClipRRect(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(5.0)),
+                                  child: Stack(
+                                    children: <Widget>[
+                                      CachedNetworkImage(
+                                        imageUrl: url + e.localimage[0].url,
+                                        imageBuilder:
+                                            (context, imageProvider) =>
+                                                Container(
+                                          decoration: BoxDecoration(
+                                            image: DecorationImage(
+                                              image: imageProvider,
+                                              fit: BoxFit.fill,
+                                            ),
+                                          ),
+                                        ),
+                                        placeholder: (context, url) => Center(
+                                            child: CircularProgressIndicator()),
+                                        errorWidget: (context, url, error) =>
+                                            Icon(Icons.error),
+                                      ),
+                                      Positioned(
+                                        bottom: 25,
+                                        left: 10,
+                                        right: 0.0,
+                                        child: Text(
+                                          e.titlepage,
+                                          style: TextStyle(
+                                            color: colorback,
+                                            fontSize: 16,
+                                            fontFamily: 'Phetsarath-OT',
                                           ),
                                         ),
                                       ),
-                                      placeholder: (context, url) => Center(
-                                          child: CircularProgressIndicator()),
-                                      errorWidget: (context, url, error) =>
-                                          Icon(Icons.error),
-                                    ),
-                                    Positioned(
-                                      bottom: 20,
-                                      left: 10,
-                                      right: 0.0,
-                                      child: Text(
-                                        e.titlepage,
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 16,
-                                          fontFamily: 'Phetsarath-OT',
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                )),
+                                    ],
+                                  )),
+                            ),
                           );
                         }).toList(),
                       )))

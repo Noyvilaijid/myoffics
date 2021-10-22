@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:myoffice/controller/service.dart';
@@ -58,7 +60,7 @@ class _ServicePageState extends State<ServicePage> {
                     Text(
                       "ບໍລິການ",
                       style: TextStyle(
-                          color: Colors.black,
+                          color: colorback,
                           fontSize: 25,
                           fontWeight: FontWeight.bold,
                           fontFamily: 'Phetsarath-OT'),
@@ -116,13 +118,13 @@ class _ServicePageState extends State<ServicePage> {
                                           children: [
                                             Text(service[index].title,
                                                 style: TextStyle(
-                                                  color: Colors.black,
+                                                  color: colorback,
                                                   fontSize: 18,
                                                   fontFamily: 'Phetsarath-OT',
                                                 )),
                                             Text(service[index].content,
                                                 style: TextStyle(
-                                                  color: Colors.black,
+                                                  color: colorback,
                                                   fontSize: 16,
                                                   fontFamily: 'Phetsarath-OT',
                                                 ))
@@ -150,15 +152,15 @@ class _ServicePageState extends State<ServicePage> {
                                                 });
                                               },
                                               color: menuselect,
-                                              disabledColor: Colors.blue,
+                                              disabledColor: colorblue,
                                               disabledElevation: 4,
                                               elevation: 4,
-                                              hoverColor: maincolor,
+                                              hoverColor: colorblue,
                                               padding:
                                                   const EdgeInsets.all(14.0),
                                               child: Text("ເພີ່ມເຕີມ",
                                                   style: TextStyle(
-                                                    color: colormenu,
+                                                    color: colorblue,
                                                     fontSize: 14,
                                                     fontFamily: 'Phetsarath-OT',
                                                   )),
@@ -182,7 +184,6 @@ class _ServicePageState extends State<ServicePage> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          // ignore: deprecated_member_use
                           Card(
                             elevation: 10,
                             child: Container(
@@ -199,14 +200,14 @@ class _ServicePageState extends State<ServicePage> {
                                   });
                                 },
                                 color: menuselect,
-                                disabledColor: Colors.blue,
+                                disabledColor: colorblue,
                                 disabledElevation: 4,
                                 elevation: 4,
-                                hoverColor: maincolor,
+                                hoverColor: colorblue,
                                 padding: const EdgeInsets.all(14.0),
                                 child: Text("ເບີ່ງເພີ່ມເຕີມ. . .",
                                     style: TextStyle(
-                                      color: colormenu,
+                                      color: colorblue,
                                       fontSize: 14,
                                       fontFamily: 'Phetsarath-OT',
                                     )),
@@ -234,7 +235,7 @@ class _ServicePageState extends State<ServicePage> {
                     Text(
                       "ບໍລິການ",
                       style: TextStyle(
-                          color: Colors.black,
+                          color: colorback,
                           fontSize: 25,
                           fontWeight: FontWeight.bold,
                           fontFamily: 'Phetsarath-OT'),
@@ -262,47 +263,54 @@ class _ServicePageState extends State<ServicePage> {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     Expanded(
-                                        child: Container(
-                                      child: CachedNetworkImage(
-                                        imageUrl:
-                                            url + service[index].images[0].url,
-                                        imageBuilder:
-                                            (context, imageProvider) =>
-                                                Container(
-                                          decoration: BoxDecoration(
-                                            image: DecorationImage(
-                                              image: imageProvider,
-                                              fit: BoxFit.fill,
+                                      child: Container(
+                                        child: CachedNetworkImage(
+                                          imageUrl: url +
+                                              service[index].images[0].url,
+                                          imageBuilder:
+                                              (context, imageProvider) =>
+                                                  Container(
+                                            decoration: BoxDecoration(
+                                              image: DecorationImage(
+                                                image: imageProvider,
+                                                fit: BoxFit.fill,
+                                              ),
                                             ),
                                           ),
+                                          placeholder: (context, url) => Center(
+                                              child:
+                                                  CircularProgressIndicator()),
+                                          errorWidget: (context, url, error) =>
+                                              Icon(Icons.error),
                                         ),
-                                        placeholder: (context, url) => Center(
-                                            child: CircularProgressIndicator()),
-                                        errorWidget: (context, url, error) =>
-                                            Icon(Icons.error),
                                       ),
-                                    )),
-                                    Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Container(
-                                        width: double.infinity,
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text(service[index].title,
-                                                style: TextStyle(
-                                                  color: Colors.black,
-                                                  fontSize: 18,
-                                                  fontFamily: 'Phetsarath-OT',
-                                                )),
-                                            Text(service[index].content,
-                                                style: TextStyle(
-                                                  color: Colors.black,
-                                                  fontSize: 16,
-                                                  fontFamily: 'Phetsarath-OT',
-                                                ))
-                                          ],
+                                    ),
+                                    Expanded(
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: SingleChildScrollView(
+                                          child: Container(
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Text(service[index].title,
+                                                    style: TextStyle(
+                                                      color: colorback,
+                                                      fontSize: 18,
+                                                      fontFamily:
+                                                          'Phetsarath-OT',
+                                                    )),
+                                                Text(service[index].content,
+                                                    style: TextStyle(
+                                                      color: colorback,
+                                                      fontSize: 16,
+                                                      fontFamily:
+                                                          'Phetsarath-OT',
+                                                    ))
+                                              ],
+                                            ),
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -312,7 +320,6 @@ class _ServicePageState extends State<ServicePage> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.end,
                                         children: [
-                                          // ignore: deprecated_member_use
                                           RaisedButton(
                                             onPressed: () {
                                               setState(() {
@@ -324,16 +331,16 @@ class _ServicePageState extends State<ServicePage> {
                                               });
                                             },
                                             color: menuselect,
-                                            textColor: Colors.white,
-                                            disabledColor: Colors.blue,
-                                            disabledTextColor: Colors.white,
+                                            textColor: colorwhite,
+                                            disabledColor: colorblue,
+                                            disabledTextColor: colorwhite,
                                             disabledElevation: 4,
                                             elevation: 4,
-                                            hoverColor: maincolor,
+                                            hoverColor: colorblue,
                                             padding: const EdgeInsets.all(14.0),
                                             child: Text("ເພີ່ມເຕີມ",
                                                 style: TextStyle(
-                                                  color: colormenu,
+                                                  color: colorblue,
                                                   fontSize: 16,
                                                   fontFamily: 'Phetsarath-OT',
                                                 )),
@@ -356,7 +363,6 @@ class _ServicePageState extends State<ServicePage> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          // ignore: deprecated_member_use
                           Card(
                             elevation: 10,
                             child: Container(
@@ -372,16 +378,16 @@ class _ServicePageState extends State<ServicePage> {
                                   });
                                 },
                                 color: menuselect,
-                                textColor: Colors.white,
-                                disabledColor: Colors.blue,
-                                disabledTextColor: Colors.white,
+                                textColor: colorwhite,
+                                disabledColor: colorblue,
+                                disabledTextColor: colorwhite,
                                 disabledElevation: 4,
                                 elevation: 4,
-                                hoverColor: maincolor,
+                                hoverColor: colorblue,
                                 padding: const EdgeInsets.all(14.0),
                                 child: Text("ເບີ່ງເພີ່ມເຕີມ. . .",
                                     style: TextStyle(
-                                      color: colormenu,
+                                      color: colorwhite,
                                       fontSize: 16,
                                       fontFamily: 'Phetsarath-OT',
                                     )),
@@ -398,7 +404,7 @@ class _ServicePageState extends State<ServicePage> {
       pc: service.length == 0
           ? Center(child: CircularProgressIndicator())
           : Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 100),
+              padding: const EdgeInsets.symmetric(horizontal: 150),
               child: Center(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -409,7 +415,7 @@ class _ServicePageState extends State<ServicePage> {
                     Text(
                       "ບໍລິການ",
                       style: TextStyle(
-                          color: Colors.black,
+                          color: colorback,
                           fontSize: 25,
                           fontWeight: FontWeight.bold,
                           fontFamily: 'Phetsarath-OT'),
@@ -473,14 +479,14 @@ class _ServicePageState extends State<ServicePage> {
                                               children: [
                                                 Text(service[index].title,
                                                     style: TextStyle(
-                                                      color: Colors.black,
+                                                      color: colorback,
                                                       fontSize: 18,
                                                       fontFamily:
                                                           'Phetsarath-OT',
                                                     )),
                                                 Text(service[index].content,
                                                     style: TextStyle(
-                                                      color: Colors.black,
+                                                      color: colorback,
                                                       fontSize: 16,
                                                       fontFamily:
                                                           'Phetsarath-OT',
@@ -497,20 +503,19 @@ class _ServicePageState extends State<ServicePage> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.end,
                                         children: [
-                                          // ignore: deprecated_member_use
                                           RaisedButton(
                                             onPressed: () {},
-                                            color: menuselect,
-                                            textColor: Colors.white,
-                                            disabledColor: Colors.blue,
-                                            disabledTextColor: Colors.white,
+                                            color: colorblue,
+                                            textColor: colorblue,
+                                            disabledColor: colorblue,
+                                            disabledTextColor: colorwhite,
                                             disabledElevation: 4,
                                             elevation: 4,
-                                            hoverColor: maincolor,
+                                            hoverColor: colorgray,
                                             padding: const EdgeInsets.all(14.0),
                                             child: Text("ເພີ່ມເຕີມ",
                                                 style: TextStyle(
-                                                  color: colormenu,
+                                                  color: colorwhite,
                                                   fontSize: 16,
                                                   fontFamily: 'Phetsarath-OT',
                                                 )),
@@ -532,7 +537,6 @@ class _ServicePageState extends State<ServicePage> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          // ignore: deprecated_member_use
                           Card(
                             elevation: 10,
                             child: Container(
@@ -547,17 +551,17 @@ class _ServicePageState extends State<ServicePage> {
                                     }
                                   });
                                 },
-                                color: menuselect,
-                                textColor: Colors.white,
-                                disabledColor: Colors.blue,
-                                disabledTextColor: Colors.white,
+                                color: colorblue,
+                                textColor: colorwhite,
+                                disabledColor: colorblue,
+                                disabledTextColor: colorwhite,
                                 disabledElevation: 4,
                                 elevation: 4,
-                                hoverColor: maincolor,
+                                hoverColor: colorgray,
                                 padding: const EdgeInsets.all(14.0),
                                 child: Text("ເບີ່ງເພີ່ມເຕີມ. . .",
                                     style: TextStyle(
-                                      color: colormenu,
+                                      color: colorwhite,
                                       fontSize: 16,
                                       fontFamily: 'Phetsarath-OT',
                                     )),

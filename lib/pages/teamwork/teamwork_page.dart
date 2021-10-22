@@ -1,12 +1,10 @@
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:carousel_slider/carousel_controller.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:myoffice/controller/service.dart';
 import 'package:myoffice/extensions/hover_extension.dart';
 import 'package:myoffice/models/teamwork.dart';
 import 'package:myoffice/responsive/runningapprespon.dart';
+import 'package:myoffice/theme/theme.dart';
 
 var url = Url.url;
 
@@ -62,7 +60,7 @@ class _TeamWorkPageState extends State<TeamWorkPage> {
                         Text(
                           "ທີມງານບໍລິສັດຂອງພວກເຮົາ",
                           style: TextStyle(
-                              color: Colors.black,
+                              color: colorback,
                               fontSize: 25,
                               fontWeight: FontWeight.bold,
                               fontFamily: 'Phetsarath-OT'),
@@ -101,7 +99,7 @@ class _TeamWorkPageState extends State<TeamWorkPage> {
                                             decoration: BoxDecoration(
                                                 borderRadius:
                                                     BorderRadius.circular(20),
-                                                color: Colors.red),
+                                                color: colorblue),
                                             child: Column(
                                               crossAxisAlignment:
                                                   CrossAxisAlignment.center,
@@ -112,7 +110,7 @@ class _TeamWorkPageState extends State<TeamWorkPage> {
                                                       fontSize: 16,
                                                       fontWeight:
                                                           FontWeight.normal,
-                                                      color: Colors.black,
+                                                      color: colorwhite,
                                                       fontFamily:
                                                           'Phetsarath-OT'),
                                                 ),
@@ -122,7 +120,7 @@ class _TeamWorkPageState extends State<TeamWorkPage> {
                                                       fontSize: 18,
                                                       fontWeight:
                                                           FontWeight.normal,
-                                                      color: Colors.black,
+                                                      color: colorwhite,
                                                       fontFamily: 'times'),
                                                 ),
                                               ],
@@ -151,7 +149,7 @@ class _TeamWorkPageState extends State<TeamWorkPage> {
                         Text(
                           "ທີມງານບໍລິສັດຂອງພວກເຮົາ",
                           style: TextStyle(
-                              color: Colors.black,
+                              color: colorback,
                               fontSize: 25,
                               fontWeight: FontWeight.bold,
                               fontFamily: 'Phetsarath-OT'),
@@ -193,7 +191,7 @@ class _TeamWorkPageState extends State<TeamWorkPage> {
                                             decoration: BoxDecoration(
                                                 borderRadius:
                                                     BorderRadius.circular(20),
-                                                color: Colors.red),
+                                                color: colorblue),
                                             child: Column(
                                               crossAxisAlignment:
                                                   CrossAxisAlignment.center,
@@ -204,7 +202,7 @@ class _TeamWorkPageState extends State<TeamWorkPage> {
                                                       fontSize: 16,
                                                       fontWeight:
                                                           FontWeight.normal,
-                                                      color: Colors.black,
+                                                      color: colorwhite,
                                                       fontFamily:
                                                           'Phetsarath-OT'),
                                                 ),
@@ -214,7 +212,7 @@ class _TeamWorkPageState extends State<TeamWorkPage> {
                                                       fontSize: 18,
                                                       fontWeight:
                                                           FontWeight.normal,
-                                                      color: Colors.black,
+                                                      color: colorwhite,
                                                       fontFamily: 'times'),
                                                 ),
                                               ],
@@ -230,7 +228,7 @@ class _TeamWorkPageState extends State<TeamWorkPage> {
           pc: team.length == 0
               ? Center(child: CircularProgressIndicator())
               : Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 100),
+                  padding: const EdgeInsets.symmetric(horizontal: 150),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -240,7 +238,7 @@ class _TeamWorkPageState extends State<TeamWorkPage> {
                       Text(
                         "ທີມງານບໍລິສັດຂອງພວກເຮົາ",
                         style: TextStyle(
-                            color: Colors.black,
+                            color: colorback,
                             fontSize: 25,
                             fontWeight: FontWeight.bold,
                             fontFamily: 'Phetsarath-OT'),
@@ -282,7 +280,7 @@ class _TeamWorkPageState extends State<TeamWorkPage> {
                                         decoration: BoxDecoration(
                                             borderRadius:
                                                 BorderRadius.circular(20),
-                                            color: Colors.red),
+                                            color: colorblue),
                                         child: Column(
                                           crossAxisAlignment:
                                               CrossAxisAlignment.center,
@@ -292,7 +290,7 @@ class _TeamWorkPageState extends State<TeamWorkPage> {
                                               style: TextStyle(
                                                   fontSize: 16,
                                                   fontWeight: FontWeight.normal,
-                                                  color: Colors.black,
+                                                  color: colorwhite,
                                                   fontFamily: 'Phetsarath-OT'),
                                             ),
                                             Text(
@@ -300,7 +298,7 @@ class _TeamWorkPageState extends State<TeamWorkPage> {
                                               style: TextStyle(
                                                   fontSize: 18,
                                                   fontWeight: FontWeight.normal,
-                                                  color: Colors.black,
+                                                  color: colorwhite,
                                                   fontFamily: 'times'),
                                             ),
                                           ],

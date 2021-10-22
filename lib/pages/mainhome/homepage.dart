@@ -131,12 +131,6 @@ class _HomeMainState extends State<HomeMain> {
                     width: double.infinity,
                     child: MeetingPage(),
                   ),
-                  // Container(
-                  //   padding: EdgeInsets.all(8),
-                  //   height: 2,
-                  //   width: double.infinity,
-                  //   color: Colors.black,
-                  // ),
                   Container(
                     key: datekey7,
                     height: 650,

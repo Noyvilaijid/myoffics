@@ -14,8 +14,7 @@ class MyApp extends StatelessWidget {
       title: 'Official Website',
       initialRoute: AppRoutes.MAINHOME,
       getPages: AppPages.listAppPage,
-      theme: new ThemeData(scaffoldBackgroundColor: colorwhite), //secondcolor
+      theme: new ThemeData(scaffoldBackgroundColor: colorwhite),
     );
   }
 }
-//http://192.168.100.12:1337/admin

@@ -4,6 +4,7 @@ import 'package:myoffice/controller/service.dart';
 import 'package:myoffice/models/Contactmd.dart';
 import 'package:myoffice/responsive/runningapprespon.dart';
 import 'package:http/http.dart' as http;
+import 'package:myoffice/theme/theme.dart';
 
 class ContactPage extends StatefulWidget {
   const ContactPage({Key key}) : super(key: key);
@@ -14,7 +15,9 @@ class ContactPage extends StatefulWidget {
 class _ContactPageState extends State<ContactPage> {
   var url = Url.url;
   bool loading = true;
+  // ignore: deprecated_member_use
   List<Contact> about = new List();
+  // ignore: missing_return
   Future<List<Contact>> getdata() async {
     try {
       var data = await http.get(Uri.parse('$url/contacts'));
@@ -241,141 +244,148 @@ class _ContactPageState extends State<ContactPage> {
                   padding: const EdgeInsets.symmetric(horizontal: 100),
                   child: Container(
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         SizedBox(
                           height: 30,
                         ),
-                        Text(
-                          "ຕິດຕໍ່",
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 25,
-                              fontFamily: 'Phetsarath-OT'),
-                        ),
-                        SizedBox(
-                          height: 30,
-                        ),
-                        Row(
-                          children: [
-                            Expanded(
-                                flex: 3,
-                                child: Container(
-                                  child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Row(
-                                          children: [
-                                            Icon(
-                                              Icons.phone,
-                                              color: Colors.black,
-                                              size: 25,
-                                            ),
-                                            SizedBox(
-                                              width: 10,
-                                            ),
-                                            TextTitle(
+                        Expanded(
+                          flex: 7,
+                          child: Card(
+                            elevation: 10,
+                            child: Container(
+                              padding: EdgeInsets.all(16),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "ຕິດຕໍ່",
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 25,
+                                        fontFamily: 'Phetsarath-OT'),
+                                  ),
+                                  SizedBox(
+                                    height: 30,
+                                  ),
+                                  Container(
+                                    child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Row(
+                                            children: [
+                                              Icon(
+                                                Icons.phone,
                                                 color: Colors.black,
-                                                fontWeight: FontWeight.normal,
-                                                size: 16,
-                                                text: about[0].contact,
-                                                fontFamily: 'Phetsarath-OT'),
-                                            SizedBox(
-                                              width: 30,
-                                            ),
-                                            Expanded(
-                                              child: TextTitle(
-                                                  color: Colors.black,
-                                                  fontWeight: FontWeight.normal,
-                                                  size: 18,
-                                                  text: about[0].details,
-                                                  fontFamily: 'times'),
-                                            ),
-                                          ],
-                                        ),
-                                        SizedBox(
-                                          height: 15,
-                                        ),
-                                        Row(
-                                          children: [
-                                            Icon(
-                                              Icons.email,
-                                              color: Colors.black,
-                                              size: 25,
-                                            ),
-                                            SizedBox(
-                                              width: 10,
-                                            ),
-                                            TextTitle(
-                                                color: Colors.black,
-                                                fontWeight: FontWeight.normal,
-                                                size: 20,
-                                                text: about[1].contact,
-                                                fontFamily: 'times'),
-                                            SizedBox(
-                                              width: 100,
-                                            ),
-                                            Expanded(
-                                              child: TextTitle(
-                                                  color: Colors.black,
-                                                  fontWeight: FontWeight.normal,
-                                                  size: 20,
-                                                  text: about[1].details,
-                                                  fontFamily: 'times'),
-                                            ),
-                                          ],
-                                        ),
-                                        SizedBox(
-                                          height: 15,
-                                        ),
-                                        Row(
-                                          children: [
-                                            Icon(
-                                              Icons.home,
-                                              color: Colors.black,
-                                              size: 25,
-                                            ),
-                                            SizedBox(
-                                              width: 10,
-                                            ),
-                                            TextTitle(
-                                                color: Colors.black,
-                                                fontWeight: FontWeight.normal,
-                                                size: 16,
-                                                text: about[2].contact,
-                                                fontFamily: 'Phetsarath-OT'),
-                                            SizedBox(
-                                              width: 130,
-                                            ),
-                                            Expanded(
-                                              child: TextTitle(
+                                                size: 25,
+                                              ),
+                                              SizedBox(
+                                                width: 10,
+                                              ),
+                                              TextTitle(
                                                   color: Colors.black,
                                                   fontWeight: FontWeight.normal,
                                                   size: 16,
-                                                  text: about[2].details,
+                                                  text: about[0].contact,
                                                   fontFamily: 'Phetsarath-OT'),
-                                            ),
-                                          ],
-                                        ),
-                                      ]),
-                                )),
-                            Container(
-                              padding: EdgeInsets.all(8),
-                              height: 250,
-                              width: 2,
-                              color: Colors.black,
-                            ),
-                            SizedBox(
-                              width: 15,
-                            ),
-                            Expanded(
-                                flex: 2,
-                                child: Container(
-                                  padding: EdgeInsets.only(bottom: 50),
-                                  child: Column(
+                                              SizedBox(
+                                                width: 30,
+                                              ),
+                                              Expanded(
+                                                child: TextTitle(
+                                                    color: Colors.black,
+                                                    fontWeight:
+                                                        FontWeight.normal,
+                                                    size: 18,
+                                                    text: about[0].details,
+                                                    fontFamily: 'times'),
+                                              ),
+                                            ],
+                                          ),
+                                          SizedBox(
+                                            height: 15,
+                                          ),
+                                          Row(
+                                            children: [
+                                              Icon(
+                                                Icons.email,
+                                                color: Colors.black,
+                                                size: 25,
+                                              ),
+                                              SizedBox(
+                                                width: 10,
+                                              ),
+                                              TextTitle(
+                                                  color: Colors.black,
+                                                  fontWeight: FontWeight.normal,
+                                                  size: 20,
+                                                  text: about[1].contact,
+                                                  fontFamily: 'times'),
+                                              SizedBox(
+                                                width: 100,
+                                              ),
+                                              Expanded(
+                                                child: TextTitle(
+                                                    color: Colors.black,
+                                                    fontWeight:
+                                                        FontWeight.normal,
+                                                    size: 20,
+                                                    text: about[1].details,
+                                                    fontFamily: 'times'),
+                                              ),
+                                            ],
+                                          ),
+                                          SizedBox(
+                                            height: 15,
+                                          ),
+                                          Row(
+                                            children: [
+                                              Icon(
+                                                Icons.home,
+                                                color: Colors.black,
+                                                size: 25,
+                                              ),
+                                              SizedBox(
+                                                width: 10,
+                                              ),
+                                              TextTitle(
+                                                  color: Colors.black,
+                                                  fontWeight: FontWeight.normal,
+                                                  size: 16,
+                                                  text: about[2].contact,
+                                                  fontFamily: 'Phetsarath-OT'),
+                                              SizedBox(
+                                                width: 130,
+                                              ),
+                                              Expanded(
+                                                child: TextTitle(
+                                                    color: Colors.black,
+                                                    fontWeight:
+                                                        FontWeight.normal,
+                                                    size: 16,
+                                                    text: about[2].details,
+                                                    fontFamily:
+                                                        'Phetsarath-OT'),
+                                              ),
+                                            ],
+                                          ),
+                                        ]),
+                                  ),
+                                  SizedBox(
+                                    height: 30,
+                                  ),
+                                  Container(
+                                    padding: EdgeInsets.all(8),
+                                    height: 2,
+                                    width: double.infinity,
+                                    color: Colors.black,
+                                  ),
+                                  SizedBox(
+                                    height: 30,
+                                  ),
+                                  Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
@@ -418,22 +428,31 @@ class _ContactPageState extends State<ContactPage> {
                                       )
                                     ],
                                   ),
-                                ))
-                          ],
+                                ],
+                              ),
+                            ),
+                          ),
                         ),
                         SizedBox(
                           height: 10,
                         ),
-                        Container(
-                          width: double.infinity,
-                          child: Center(
-                            child: Text(
-                                "Copyright @ 2021 Bestech All Rights Reserved",
-                                style: TextStyle(
-                                    fontSize: 20,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
-                                    fontFamily: 'times')),
+                        Expanded(
+                          flex: 1,
+                          child: Container(
+                            decoration: BoxDecoration(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(5)),
+                                color: colorgray),
+                            width: double.infinity,
+                            child: Center(
+                              child: Text(
+                                  "Copyright @ 2021 Bestech All Rights Reserved",
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      color: colorwhite,
+                                      fontWeight: FontWeight.bold,
+                                      fontFamily: 'times')),
+                            ),
                           ),
                         ),
                       ],
@@ -441,198 +460,229 @@ class _ContactPageState extends State<ContactPage> {
                   ),
                 ),
                 pc: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 100),
+                  padding: const EdgeInsets.symmetric(horizontal: 150),
                   child: Container(
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         SizedBox(
                           height: 30,
                         ),
-                        Text(
-                          "ຕິດຕໍ່",
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 25,
-                              fontFamily: 'Phetsarath-OT'),
-                        ),
-                        SizedBox(
-                          height: 30,
-                        ),
-                        Row(
-                          children: [
-                            Expanded(
-                                child: Container(
-                              child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Row(
-                                      children: [
-                                        Icon(
-                                          Icons.phone,
-                                          color: Colors.black,
-                                          size: 25,
-                                        ),
-                                        SizedBox(
-                                          width: 10,
-                                        ),
-                                        TextTitle(
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.normal,
-                                            size: 16,
-                                            text: about[0].contact,
-                                            fontFamily: 'Phetsarath-OT'),
-                                        SizedBox(
-                                          width: 30,
-                                        ),
-                                        Expanded(
-                                          child: TextTitle(
-                                              color: Colors.black,
-                                              fontWeight: FontWeight.normal,
-                                              size: 18,
-                                              text: about[0].details,
-                                              fontFamily: 'times'),
-                                        ),
-                                      ],
-                                    ),
-                                    SizedBox(
-                                      height: 15,
-                                    ),
-                                    Row(
-                                      children: [
-                                        Icon(
-                                          Icons.email,
-                                          color: Colors.black,
-                                          size: 25,
-                                        ),
-                                        SizedBox(
-                                          width: 10,
-                                        ),
-                                        TextTitle(
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.normal,
-                                            size: 20,
-                                            text: about[1].contact,
-                                            fontFamily: 'times'),
-                                        SizedBox(
-                                          width: 100,
-                                        ),
-                                        Expanded(
-                                          child: TextTitle(
-                                              color: Colors.black,
-                                              fontWeight: FontWeight.normal,
-                                              size: 20,
-                                              text: about[1].details,
-                                              fontFamily: 'times'),
-                                        ),
-                                      ],
-                                    ),
-                                    SizedBox(
-                                      height: 15,
-                                    ),
-                                    Row(
-                                      children: [
-                                        Icon(
-                                          Icons.home,
-                                          color: Colors.black,
-                                          size: 25,
-                                        ),
-                                        SizedBox(
-                                          width: 10,
-                                        ),
-                                        TextTitle(
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.normal,
-                                            size: 16,
-                                            text: about[2].contact,
-                                            fontFamily: 'Phetsarath-OT'),
-                                        SizedBox(
-                                          width: 130,
-                                        ),
-                                        Expanded(
-                                          child: TextTitle(
-                                              color: Colors.black,
-                                              fontWeight: FontWeight.normal,
-                                              size: 16,
-                                              text: about[2].details,
-                                              fontFamily: 'Phetsarath-OT'),
-                                        ),
-                                      ],
-                                    ),
-                                  ]),
-                            )),
-                            Container(
-                              padding: EdgeInsets.all(8),
-                              height: 250,
-                              width: 2,
-                              color: Colors.black,
-                            ),
-                            SizedBox(
-                              width: 15,
-                            ),
-                            Expanded(
-                                child: Container(
-                              padding: EdgeInsets.only(bottom: 50),
+                        Expanded(
+                          flex: 7,
+                          child: Card(
+                            elevation: 10,
+                            child: Container(
+                              padding: EdgeInsets.all(16),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    "official bestech social midia"
-                                        .toUpperCase(),
+                                    "ຕິດຕໍ່",
                                     style: TextStyle(
                                         color: Colors.black,
-                                        fontWeight: FontWeight.normal,
-                                        fontSize: 18,
-                                        fontFamily: 'times'),
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 25,
+                                        fontFamily: 'Phetsarath-OT'),
                                   ),
                                   SizedBox(
-                                    height: 15,
+                                    height: 30,
                                   ),
                                   Row(
                                     children: [
-                                      IconButton(
-                                        icon: new Icon(
-                                          Icons.facebook,
-                                          color: Colors.black,
-                                          size: 40,
-                                        ),
-                                        highlightColor: Colors.pink,
-                                        onPressed: () {},
+                                      Expanded(
+                                          child: Container(
+                                        child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Row(
+                                                children: [
+                                                  Icon(
+                                                    Icons.phone,
+                                                    color: Colors.black,
+                                                    size: 25,
+                                                  ),
+                                                  SizedBox(
+                                                    width: 10,
+                                                  ),
+                                                  TextTitle(
+                                                      color: Colors.black,
+                                                      fontWeight:
+                                                          FontWeight.normal,
+                                                      size: 16,
+                                                      text: about[0].contact,
+                                                      fontFamily:
+                                                          'Phetsarath-OT'),
+                                                  SizedBox(
+                                                    width: 30,
+                                                  ),
+                                                  Expanded(
+                                                    child: TextTitle(
+                                                        color: Colors.black,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                        size: 18,
+                                                        text: about[0].details,
+                                                        fontFamily: 'times'),
+                                                  ),
+                                                ],
+                                              ),
+                                              SizedBox(
+                                                height: 15,
+                                              ),
+                                              Row(
+                                                children: [
+                                                  Icon(
+                                                    Icons.email,
+                                                    color: Colors.black,
+                                                    size: 25,
+                                                  ),
+                                                  SizedBox(
+                                                    width: 10,
+                                                  ),
+                                                  TextTitle(
+                                                      color: Colors.black,
+                                                      fontWeight:
+                                                          FontWeight.normal,
+                                                      size: 20,
+                                                      text: about[1].contact,
+                                                      fontFamily: 'times'),
+                                                  SizedBox(
+                                                    width: 100,
+                                                  ),
+                                                  Expanded(
+                                                    child: TextTitle(
+                                                        color: Colors.black,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                        size: 20,
+                                                        text: about[1].details,
+                                                        fontFamily: 'times'),
+                                                  ),
+                                                ],
+                                              ),
+                                              SizedBox(
+                                                height: 15,
+                                              ),
+                                              Row(
+                                                children: [
+                                                  Icon(
+                                                    Icons.home,
+                                                    color: Colors.black,
+                                                    size: 25,
+                                                  ),
+                                                  SizedBox(
+                                                    width: 10,
+                                                  ),
+                                                  TextTitle(
+                                                      color: Colors.black,
+                                                      fontWeight:
+                                                          FontWeight.normal,
+                                                      size: 16,
+                                                      text: about[2].contact,
+                                                      fontFamily:
+                                                          'Phetsarath-OT'),
+                                                  SizedBox(
+                                                    width: 130,
+                                                  ),
+                                                  Expanded(
+                                                    child: TextTitle(
+                                                        color: Colors.black,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                        size: 16,
+                                                        text: about[2].details,
+                                                        fontFamily:
+                                                            'Phetsarath-OT'),
+                                                  ),
+                                                ],
+                                              ),
+                                            ]),
+                                      )),
+                                      Container(
+                                        padding: EdgeInsets.all(8),
+                                        height: 250,
+                                        width: 2,
+                                        color: Colors.black,
                                       ),
                                       SizedBox(
-                                        width: 10,
+                                        width: 15,
                                       ),
-                                      IconButton(
-                                        icon: new Icon(
-                                          Icons.home,
-                                          color: Colors.black,
-                                          size: 40,
+                                      Expanded(
+                                          child: Container(
+                                        padding: EdgeInsets.only(bottom: 50),
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              "official bestech social midia"
+                                                  .toUpperCase(),
+                                              style: TextStyle(
+                                                  color: Colors.black,
+                                                  fontWeight: FontWeight.normal,
+                                                  fontSize: 18,
+                                                  fontFamily: 'times'),
+                                            ),
+                                            SizedBox(
+                                              height: 15,
+                                            ),
+                                            Row(
+                                              children: [
+                                                IconButton(
+                                                  icon: new Icon(
+                                                    Icons.facebook,
+                                                    color: Colors.black,
+                                                    size: 40,
+                                                  ),
+                                                  highlightColor: Colors.pink,
+                                                  onPressed: () {},
+                                                ),
+                                                SizedBox(
+                                                  width: 10,
+                                                ),
+                                                IconButton(
+                                                  icon: new Icon(
+                                                    Icons.home,
+                                                    color: Colors.black,
+                                                    size: 40,
+                                                  ),
+                                                  highlightColor: Colors.pink,
+                                                  onPressed: () {},
+                                                ),
+                                              ],
+                                            )
+                                          ],
                                         ),
-                                        highlightColor: Colors.pink,
-                                        onPressed: () {},
-                                      ),
+                                      ))
                                     ],
-                                  )
+                                  ),
                                 ],
                               ),
-                            ))
-                          ],
+                            ),
+                          ),
                         ),
                         SizedBox(
                           height: 10,
                         ),
-                        Container(
-                          width: double.infinity,
-                          child: Center(
-                            child: Text(
-                                "Copyright @ 2021 Bestech All Rights Reserved",
-                                style: TextStyle(
-                                    fontSize: 20,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
-                                    fontFamily: 'times')),
+                        Expanded(
+                          flex: 1,
+                          child: Container(
+                            decoration: BoxDecoration(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(5)),
+                                color: colorgray),
+                            width: double.infinity,
+                            child: Center(
+                              child: Text(
+                                  "Copyright @ 2021 Bestech All Rights Reserved",
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      color: colorwhite,
+                                      fontWeight: FontWeight.bold,
+                                      fontFamily: 'times')),
+                            ),
                           ),
                         ),
                       ],
