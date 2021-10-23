@@ -6,14 +6,14 @@ RUN apt-get clean
 # Clone the flutter repo
 RUN git clone https://github.com/flutter/flutter.git /usr/local/flutter
 ENV PATH="/usr/local/flutter/bin:/usr/local/flutter/bin/cache/dart-sdk/bin:${PATH}"
-# RUN flutter doctor -v
-# RUN flutter channel master
-# RUN flutter upgrade
+RUN flutter doctor -v
+RUN flutter channel master
+RUN flutter upgrade
 RUN flutter config --enable-web
 # Run flutter doctor
 # Copy the app files to the container
 # COPY . /usr/local/bin/app
-RUN git clone https://github.com/Noyvilaijid/ExcelWeb.git /usr/local/bin/app
+RUN git clone https://github.com/Noyvilaijid/officweb.git /usr/local/bin/app
 # Set the working directory to the app files within the container
 WORKDIR /usr/local/bin/app
 # Get App Dependencies
