@@ -107,7 +107,7 @@ class _PastWorkState extends State<PastWork> {
                             );
                           },
                           options: CarouselOptions(
-                              height: 450,
+                              height: MediaQuery.of(context).size.height / 1.5,
                               autoPlay: true,
                               // reverse: true,
                               viewportFraction: 1,

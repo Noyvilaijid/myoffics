@@ -12,8 +12,8 @@ RUN flutter upgrade
 RUN flutter config --enable-web
 # Run flutter doctor
 # Copy the app files to the container
-# COPY . /usr/local/bin/app
-RUN git clone https://github.com/Noyvilaijid/officweb.git /usr/local/bin/app
+#  COPY . /usr/local/bin/app
+ RUN git clone https://github.com/Noyvilaijid/officweb.git /usr/local/bin/app
 # Set the working directory to the app files within the container
 WORKDIR /usr/local/bin/app
 # Get App Dependencies
@@ -45,3 +45,33 @@ ENTRYPOINT [ "/usr/local/bin/app/server/server.sh" ]
 # EXPOSE 8080
 # ENTRYPOINT ["/usr/local/bin/app/server/server.sh"]
 
+
+# FROM google/dart
+# # uncomment next line to ensure latest Dart and root CA bundle
+# #RUN apt -y update && apt -y upgrade
+# WORKDIR /app
+# COPY pubspec.* .
+# RUN pub get
+# COPY . .
+# RUN pub get --offline
+# FROM subfuzion/dart-scratch
+# COPY --from=0 /usr/lib/dart/bin/dart /usr/lib/dart/bin/dart
+# COPY --from=0 /root/.pub-cache /root/.pub-cache
+# # Copy over the entire app...
+# COPY --from=0 /app /app
+# # ...or copy specific files and directories you require at runtime, ex:
+# #COPY --from=0 /app/bin/server.dart /app/bin/server.dart
+# #COPY --from=0 /app/lib/ /app/lib/
+# #COPY --from=0 /app/static/ /app/static/
+# EXPOSE 8080
+# ENTRYPOINT ["/usr/lib/dart/bin/dart", "/app/bin/server.dart"]
+
+# FROM google/dart
+# WORKDIR /app
+# COPY . .
+
+# FROM subfuzion/dart-scratch
+# COPY --from=0 /usr/lib/dart/bin/dart /usr/lib/dart/bin/dart
+# COPY --from=0 /app /app
+# EXPOSE 8080
+# ENTRYPOINT ["/usr/lib/dart/bin/dart", "/app/main.dart"]

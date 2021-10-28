@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:myoffice/controller/service.dart';
 import 'package:http/http.dart' as http;
@@ -20,8 +19,6 @@ class _AboutPageState extends State<AboutPage> {
       var data = await http.get(Uri.parse('$url/abouts'));
       if (data.statusCode == 200) {
         var jsonData = data.body;
-        // var list = json.decode(jsonData) as List;
-        //  List<AboutMd> values = list.map((e) => AboutMd.fromJson(e)).toList();
         List<AboutMd> listimage = aboutMdFromJson(jsonData);
         return listimage;
       }
@@ -45,7 +42,7 @@ class _AboutPageState extends State<AboutPage> {
     return Scaffold(
       body: SafeArea(
           child: ResponsiveWidget(
-        mobile: about == null
+        mobile: about.length == 0
             ? Center(child: CircularProgressIndicator())
             : ListView.builder(
                 primary: false,
@@ -90,110 +87,114 @@ class _AboutPageState extends State<AboutPage> {
                   );
                 },
               ),
-        tablet: Column(
-          children: <Widget>[
-            Expanded(
-              child: ListView.builder(
-                itemCount: about == null
-                    ? Center(child: CircularProgressIndicator())
-                    : about.length,
-                itemBuilder: (context, index) {
-                  AboutMd item = about[index];
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 100),
-                    child: Container(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          SizedBox(
-                            height: 50,
+        tablet: about.length == 0
+            ? Center(child: CircularProgressIndicator())
+            : Column(
+                children: <Widget>[
+                  Expanded(
+                    child: ListView.builder(
+                      itemCount: about == null
+                          ? Center(child: CircularProgressIndicator())
+                          : about.length,
+                      itemBuilder: (context, index) {
+                        AboutMd item = about[index];
+                        return Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 100),
+                          child: Container(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                SizedBox(
+                                  height: 50,
+                                ),
+                                TextTitle(
+                                  text: item.title,
+                                  color: colorback,
+                                  size: 25,
+                                  fontWeight: FontWeight.bold,
+                                  font: 'Phetsarath-OT',
+                                ),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                TextTitle(
+                                  text: item.company.toUpperCase(),
+                                  color: colorback,
+                                  size: 25,
+                                  fontWeight: FontWeight.bold,
+                                  font: 'times',
+                                ),
+                                TextTitle(
+                                  text: item.content,
+                                  color: colorback,
+                                  size: 20,
+                                  fontWeight: FontWeight.normal,
+                                  font: 'Phetsarath-OT',
+                                ),
+                              ],
+                            ),
                           ),
-                          TextTitle(
-                            text: item.title,
-                            color: colorback,
-                            size: 25,
-                            fontWeight: FontWeight.bold,
-                            font: 'Phetsarath-OT',
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          TextTitle(
-                            text: item.company.toUpperCase(),
-                            color: colorback,
-                            size: 25,
-                            fontWeight: FontWeight.bold,
-                            font: 'times',
-                          ),
-                          TextTitle(
-                            text: item.content,
-                            color: colorback,
-                            size: 20,
-                            fontWeight: FontWeight.normal,
-                            font: 'Phetsarath-OT',
-                          ),
-                        ],
-                      ),
+                        );
+                      },
                     ),
-                  );
-                },
+                  )
+                ],
               ),
-            )
-          ],
-        ),
-        pc: Column(
-          children: <Widget>[
-            Expanded(
-              child: ListView.builder(
-                itemCount: about == null
-                    ? Center(child: CircularProgressIndicator())
-                    : about.length,
-                itemBuilder: (context, index) {
-                  AboutMd item = about[index];
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 150),
-                    child: Container(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          SizedBox(
-                            height: 50,
+        pc: about.length == 0
+            ? Center(child: CircularProgressIndicator())
+            : Column(
+                children: <Widget>[
+                  Expanded(
+                    child: ListView.builder(
+                      itemCount: about == null
+                          ? Center(child: CircularProgressIndicator())
+                          : about.length,
+                      itemBuilder: (context, index) {
+                        AboutMd item = about[index];
+                        return Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 150),
+                          child: Container(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                SizedBox(
+                                  height: 50,
+                                ),
+                                TextTitle(
+                                  text: item.title,
+                                  color: colorback,
+                                  size: 25,
+                                  fontWeight: FontWeight.bold,
+                                  font: 'Phetsarath-OT',
+                                ),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                TextTitle(
+                                  text: item.company.toUpperCase(),
+                                  color: colorback,
+                                  size: 25,
+                                  fontWeight: FontWeight.bold,
+                                  font: 'times',
+                                ),
+                                TextTitle(
+                                  text: item.content,
+                                  color: colorback,
+                                  size: 20,
+                                  fontWeight: FontWeight.normal,
+                                  font: 'Phetsarath-OT',
+                                ),
+                              ],
+                            ),
                           ),
-                          TextTitle(
-                            text: item.title,
-                            color: colorback,
-                            size: 25,
-                            fontWeight: FontWeight.bold,
-                            font: 'Phetsarath-OT',
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          TextTitle(
-                            text: item.company.toUpperCase(),
-                            color: colorback,
-                            size: 25,
-                            fontWeight: FontWeight.bold,
-                            font: 'times',
-                          ),
-                          TextTitle(
-                            text: item.content,
-                            color: colorback,
-                            size: 20,
-                            fontWeight: FontWeight.normal,
-                            font: 'Phetsarath-OT',
-                          ),
-                        ],
-                      ),
+                        );
+                      },
                     ),
-                  );
-                },
+                  )
+                ],
               ),
-            )
-          ],
-        ),
       )),
     );
   }

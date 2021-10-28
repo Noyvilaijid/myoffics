@@ -10,6 +10,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+       defaultTransition: Transition.noTransition,
+      transitionDuration: Duration(seconds: 0),
       debugShowCheckedModeBanner: false,
       title: 'Official Website',
       initialRoute: AppRoutes.MAINHOME,

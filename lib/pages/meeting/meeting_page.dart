@@ -74,8 +74,8 @@ class _MeetingPageState extends State<MeetingPage> {
                   "ນັດມື້ເຂົ້າພົບ",
                   style: TextStyle(
                       fontSize: 25,
-                      color: Colors.black,
-                      fontWeight: FontWeight.normal,
+                      color: colorback,
+                      fontWeight: FontWeight.bold,
                       fontFamily: 'Phetsarath-OT'),
                 ),
                 Center(
@@ -105,7 +105,7 @@ class _MeetingPageState extends State<MeetingPage> {
                                       fontWeight: FontWeight.normal,
                                       fontSize: 16,
                                       fontFamily: 'times'),
-                                  todayColor: Colors.red,
+                                  todayColor: colorRED,
                                   selectedColor:
                                       Theme.of(context).primaryColorDark),
                               calendarController: _controller,
@@ -118,7 +118,7 @@ class _MeetingPageState extends State<MeetingPage> {
                                     Container(
                                         alignment: Alignment.center,
                                         decoration: BoxDecoration(
-                                            color: Colors.green,
+                                            color: colortitle,
                                             shape: BoxShape.circle),
                                         child: Text(
                                           date.day.toString(),
@@ -152,25 +152,25 @@ class _MeetingPageState extends State<MeetingPage> {
                               Text("ຂໍ້ມູນຜູ້ເຂົ້າພົບ",
                                   style: TextStyle(
                                       fontSize: 20,
-                                      color: Colors.black,
+                                      color: colorback,
                                       fontWeight: FontWeight.normal,
                                       fontFamily: 'Phetsarath-OT')),
                               SizedBox(
                                 height: 20,
                               ),
                               TextFormField(
-                                cursorColor: Colors.black,
+                                cursorColor: colorback,
                                 controller: name,
                                 decoration: InputDecoration(
                                     labelText: "ຊື່",
-                                    fillColor: Colors.black,
+                                    fillColor: colorback,
                                     border: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(10.0),
                                     )),
                                 style: TextStyle(
                                     fontFamily: 'Phetsarath-OT',
                                     fontSize: 16,
-                                    color: Colors.black,
+                                    color: colorback,
                                     fontWeight: FontWeight.normal),
                                 keyboardType: TextInputType.text,
                                 validator: (value) {
@@ -184,18 +184,18 @@ class _MeetingPageState extends State<MeetingPage> {
                                 height: 20,
                               ),
                               TextFormField(
-                                cursorColor: Colors.black,
+                                cursorColor: colorback,
                                 controller: surname,
                                 decoration: InputDecoration(
                                     labelText: "ນາມສະກຸນ",
-                                    fillColor: Colors.black,
+                                    fillColor: colorback,
                                     border: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(10.0),
                                     )),
                                 style: TextStyle(
                                     fontFamily: 'Phetsarath-OT',
                                     fontSize: 16,
-                                    color: Colors.black,
+                                    color: colorback,
                                     fontWeight: FontWeight.normal),
                                 keyboardType: TextInputType.text,
                                 validator: (value) {
@@ -209,18 +209,18 @@ class _MeetingPageState extends State<MeetingPage> {
                                 height: 20,
                               ),
                               TextFormField(
-                                cursorColor: Colors.black,
+                                cursorColor: colorback,
                                 controller: organize,
                                 decoration: InputDecoration(
                                     labelText: "ອົງກອນ",
-                                    fillColor: Colors.black,
+                                    fillColor: colorback,
                                     border: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(10.0),
                                     )),
                                 style: TextStyle(
                                     fontFamily: 'Phetsarath-OT',
                                     fontSize: 16,
-                                    color: Colors.black,
+                                    color: colorback,
                                     fontWeight: FontWeight.normal),
                                 keyboardType: TextInputType.text,
                                 validator: (value) {
@@ -234,18 +234,18 @@ class _MeetingPageState extends State<MeetingPage> {
                                 height: 20,
                               ),
                               TextFormField(
-                                cursorColor: Colors.black,
+                                cursorColor: colorback,
                                 controller: phone,
                                 decoration: InputDecoration(
                                     labelText: "ເບີໂທ",
-                                    fillColor: Colors.black,
+                                    fillColor: colorback,
                                     border: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(10.0),
                                     )),
                                 style: TextStyle(
                                     fontFamily: 'times',
                                     fontSize: 16,
-                                    color: Colors.black,
+                                    color: colorback,
                                     fontWeight: FontWeight.normal),
                                 keyboardType: TextInputType.number,
                                 validator: (value) {
@@ -259,18 +259,18 @@ class _MeetingPageState extends State<MeetingPage> {
                                 height: 20,
                               ),
                               TextFormField(
-                                cursorColor: Colors.black,
+                                cursorColor: colorback,
                                 controller: email,
                                 decoration: InputDecoration(
                                     labelText: "ອີເມລ",
-                                    fillColor: Colors.black,
+                                    fillColor: colorback,
                                     border: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(10.0),
                                     )),
                                 style: TextStyle(
                                     fontFamily: 'times',
                                     fontSize: 16,
-                                    color: Colors.black,
+                                    color: colorback,
                                     fontWeight: FontWeight.normal),
                                 keyboardType: TextInputType.emailAddress,
                                 validator: (value) {
@@ -283,7 +283,6 @@ class _MeetingPageState extends State<MeetingPage> {
                               SizedBox(
                                 height: 20,
                               ),
-                           
                               RaisedButton(
                                 onPressed: () {
                                   if (_forekey.currentState.validate()) {
@@ -354,12 +353,12 @@ class _MeetingPageState extends State<MeetingPage> {
                                             });
                                   }
                                 },
-                                color: colorgray,
+                                color: colortitle,
                                 child: Text("ສົ່ງຂໍ້ມູນ",
                                     style: TextStyle(
                                         fontFamily: 'Phetsarath-OT',
                                         fontSize: 16,
-                                        color: Colors.white,
+                                        color: colorwhite,
                                         fontWeight: FontWeight.normal)),
                               ),
                             ],

@@ -28,7 +28,7 @@ class _HomeMainState extends State<HomeMain> {
   final datekey6 = new GlobalKey();
   final datekey7 = new GlobalKey();
   Future<Null> refresh() async {
-    await Future.delayed(Duration(seconds: 5));
+    await Future.delayed(Duration(seconds: 3));
     Get.offAllNamed("/");
   }
 

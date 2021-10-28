@@ -71,7 +71,7 @@ class AppMenu extends StatelessWidget {
                       forcusOnLastseven();
                     }
                   },
-                ).showCursorOnHover.moveUpOnhover,
+                )//.showCursorOnHover.moveUpOnhover,
               ),
             ],
           ),

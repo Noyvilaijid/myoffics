@@ -118,10 +118,11 @@ class _ServicePageState extends State<ServicePage> {
                                           children: [
                                             Text(service[index].title,
                                                 style: TextStyle(
-                                                  color: colorback,
-                                                  fontSize: 18,
-                                                  fontFamily: 'Phetsarath-OT',
-                                                )),
+                                                    color: colorback,
+                                                    fontSize: 18,
+                                                    fontFamily: 'Phetsarath-OT',
+                                                    fontWeight:
+                                                        FontWeight.bold)),
                                             Text(service[index].content,
                                                 style: TextStyle(
                                                   color: colorback,
@@ -132,47 +133,47 @@ class _ServicePageState extends State<ServicePage> {
                                         ),
                                       ),
                                     ),
-                                    Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.end,
-                                        children: [
-                                          Container(
-                                            width: 100,
-                                            height: 45,
-                                            child: RaisedButton(
-                                              onPressed: () {
-                                                setState(() {
-                                                  if (count >= service.length) {
-                                                    count = service.length;
-                                                  } else {
-                                                    count += 3;
-                                                  }
-                                                });
-                                              },
-                                              color: menuselect,
-                                              disabledColor: colorblue,
-                                              disabledElevation: 4,
-                                              elevation: 4,
-                                              hoverColor: colorblue,
-                                              padding:
-                                                  const EdgeInsets.all(14.0),
-                                              child: Text("ເພີ່ມເຕີມ",
-                                                  style: TextStyle(
-                                                    color: colorblue,
-                                                    fontSize: 14,
-                                                    fontFamily: 'Phetsarath-OT',
-                                                  )),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 15,
-                                      width: 10,
-                                    )
+                                    // Padding(
+                                    //   padding: const EdgeInsets.all(8.0),
+                                    //   child: Row(
+                                    //     mainAxisAlignment:
+                                    //         MainAxisAlignment.end,
+                                    //     children: [
+                                    //       Container(
+                                    //         width: 100,
+                                    //         height: 45,
+                                    //         child: RaisedButton(
+                                    //           onPressed: () {
+                                    //             setState(() {
+                                    //               if (count >= service.length) {
+                                    //                 count = service.length;
+                                    //               } else {
+                                    //                 count += 3;
+                                    //               }
+                                    //             });
+                                    //           },
+                                    //           color: menuselect,
+                                    //           disabledColor: colorblue,
+                                    //           disabledElevation: 4,
+                                    //           elevation: 4,
+                                    //           hoverColor: colorblue,
+                                    //           padding:
+                                    //               const EdgeInsets.all(14.0),
+                                    //           child: Text("ເພີ່ມເຕີມ",
+                                    //               style: TextStyle(
+                                    //                 color: colorblue,
+                                    //                 fontSize: 14,
+                                    //                 fontFamily: 'Phetsarath-OT',
+                                    //               )),
+                                    //         ),
+                                    //       ),
+                                    //     ],
+                                    //   ),
+                                    // ),
+                                    // SizedBox(
+                                    //   height: 15,
+                                    //   width: 10,
+                                    // )
                                   ],
                                 ),
                               );
@@ -199,17 +200,16 @@ class _ServicePageState extends State<ServicePage> {
                                     }
                                   });
                                 },
-                                color: menuselect,
-                                disabledColor: colorblue,
+                                color: colortitle,
                                 disabledElevation: 4,
                                 elevation: 4,
-                                hoverColor: colorblue,
                                 padding: const EdgeInsets.all(14.0),
                                 child: Text("ເບີ່ງເພີ່ມເຕີມ. . .",
                                     style: TextStyle(
-                                      color: colorblue,
-                                      fontSize: 14,
+                                      color: colorwhite,
+                                      fontSize: 16,
                                       fontFamily: 'Phetsarath-OT',
+                                      fontWeight: FontWeight.normal,
                                     )),
                               ),
                             ),
@@ -354,7 +354,7 @@ class _ServicePageState extends State<ServicePage> {
                                     )
                                   ],
                                 ),
-                              ).showCursorOnHover.moveUpOnhover;
+                              ); //.showCursorOnHover.moveUpOnhover;
                             }),
                       ),
                     ),
@@ -393,7 +393,7 @@ class _ServicePageState extends State<ServicePage> {
                                     )),
                               ),
                             ),
-                          ).showCursorOnHover.moveUpOnhover,
+                          ) //.showCursorOnHover.moveUpOnhover,
                         ],
                       ),
                     ),
@@ -528,7 +528,7 @@ class _ServicePageState extends State<ServicePage> {
                                     )
                                   ],
                                 ),
-                              ).showCursorOnHover.moveUpOnhover;
+                              ); //.showCursorOnHover.moveUpOnhover;
                             }),
                       ),
                     ),
@@ -567,7 +567,7 @@ class _ServicePageState extends State<ServicePage> {
                                     )),
                               ),
                             ),
-                          ).showCursorOnHover.moveUpOnhover,
+                          ) //.showCursorOnHover.moveUpOnhover,
                         ],
                       ),
                     ),

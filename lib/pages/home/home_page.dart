@@ -49,7 +49,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: SafeArea(
           child: ResponsiveWidget(
-        mobile: images.length == null
+        mobile: images.length == 0
             ? Center(child: CircularProgressIndicator())
             : Stack(
                 children: [
@@ -78,8 +78,8 @@ class _HomePageState extends State<HomePage> {
                   ),
                   Container(
                     margin: EdgeInsets.all(16),
-                    height: MediaQuery.of(context).size.height / 1.2,
-                    width: double.infinity,
+                    height: MediaQuery.of(context).size.height,
+                    width: MediaQuery.of(context).size.width,
                     child: CarouselSlider(
                       options: CarouselOptions(
                         onPageChanged: (index, reason) {
@@ -92,7 +92,7 @@ class _HomePageState extends State<HomePage> {
                         viewportFraction: 1,
                         scrollDirection: Axis.horizontal,
                         autoPlay: true,
-                        height: 500,
+                        height: MediaQuery.of(context).size.height / 1.5,
                       ),
                       items: images.map((e) {
                         return ClipRRect(
@@ -104,8 +104,10 @@ class _HomePageState extends State<HomePage> {
                                   imageUrl: url + e.localimage[0].url,
                                   imageBuilder: (context, imageProvider) =>
                                       Container(
-                                    height: 1800,
-                                    width: 300,
+                                    height: MediaQuery.of(context).size.height /
+                                        1.5,
+                                    width:
+                                        MediaQuery.of(context).size.width / 1,
                                     decoration: BoxDecoration(
                                       image: DecorationImage(
                                         image: imageProvider,
@@ -125,7 +127,7 @@ class _HomePageState extends State<HomePage> {
                                   child: Text(
                                     e.titlepage,
                                     style: TextStyle(
-                                      color: colorwhite,
+                                      color: colortitle,
                                       fontSize: 20,
                                       fontFamily: 'Phetsarath-OT',
                                     ),
@@ -138,7 +140,7 @@ class _HomePageState extends State<HomePage> {
                   )
                 ],
               ),
-        tablet: images.length == null
+        tablet: images.length == 0
             ? Center(child: CircularProgressIndicator())
             : Stack(
                 children: [
@@ -228,7 +230,7 @@ class _HomePageState extends State<HomePage> {
                   )
                 ],
               ),
-        pc: images.length == null
+        pc: images.length == 0
             ? Center(child: CircularProgressIndicator())
             : Stack(
                 children: [

@@ -54,7 +54,7 @@ class WebMenu extends StatelessWidget {
                 forcusOnLastseven();
               }
             },
-          ).showCursorOnHover.moveUpOnhover,
+          )//.showCursorOnHover.moveUpOnhover,
         ),
       ),
     );
