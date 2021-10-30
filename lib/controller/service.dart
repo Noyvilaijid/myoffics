@@ -1,3 +1,3 @@
 class Url {
-  static String url = "http://192.168.100.12:1337";
+  static String url = "http://49.0.198.122:1337";
 }

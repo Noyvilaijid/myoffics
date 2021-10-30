@@ -18,7 +18,7 @@ class _PastWorkState extends State<PastWork> {
   final List<Pastwork> pastwork = [];
   Future getdata() async {
     try {
-      var data = await http.get(Uri.parse('$url/past-works'));
+      var data = await http.get(Uri.parse('$url/pastworks'));
       if (data.statusCode == 200) {
         var jsonData = data.body;
         List<Pastwork> listimage = pastworkFromJson(jsonData);

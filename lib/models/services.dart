@@ -1,3 +1,6 @@
+// To parse this JSON data, do
+//
+//     final services = servicesFromJson(jsonString);
 
 import 'dart:convert';
 
@@ -14,8 +17,7 @@ class Services {
         this.createdAt,
         this.updatedAt,
         this.v,
-        this.createdBy,
-        this.updatedBy,
+        this.publishedAt,
         this.serviceId,
     });
 
@@ -26,8 +28,7 @@ class Services {
     DateTime createdAt;
     DateTime updatedAt;
     int v;
-    AtedBy createdBy;
-    AtedBy updatedBy;
+    DateTime publishedAt;
     String serviceId;
 
     factory Services.fromJson(Map<String, dynamic> json) => Services(
@@ -38,8 +39,7 @@ class Services {
         createdAt: DateTime.parse(json["createdAt"]),
         updatedAt: DateTime.parse(json["updatedAt"]),
         v: json["__v"],
-        createdBy: AtedBy.fromJson(json["created_by"]),
-        updatedBy: AtedBy.fromJson(json["updated_by"]),
+        publishedAt: DateTime.parse(json["published_at"]),
         serviceId: json["id"],
     );
 
@@ -51,53 +51,8 @@ class Services {
         "createdAt": createdAt.toIso8601String(),
         "updatedAt": updatedAt.toIso8601String(),
         "__v": v,
-        "created_by": createdBy.toJson(),
-        "updated_by": updatedBy.toJson(),
+        "published_at": publishedAt.toIso8601String(),
         "id": serviceId,
-    };
-}
-
-class AtedBy {
-    AtedBy({
-        this.id,
-        this.username,
-        this.firstname,
-        this.lastname,
-        this.createdAt,
-        this.updatedAt,
-        this.v,
-        this.atedById,
-    });
-
-    String id;
-    dynamic username;
-    String firstname;
-    String lastname;
-    DateTime createdAt;
-    DateTime updatedAt;
-    int v;
-    String atedById;
-
-    factory AtedBy.fromJson(Map<String, dynamic> json) => AtedBy(
-        id: json["_id"],
-        username: json["username"],
-        firstname: json["firstname"],
-        lastname: json["lastname"],
-        createdAt: DateTime.parse(json["createdAt"]),
-        updatedAt: DateTime.parse(json["updatedAt"]),
-        v: json["__v"],
-        atedById: json["id"],
-    );
-
-    Map<String, dynamic> toJson() => {
-        "_id": id,
-        "username": username,
-        "firstname": firstname,
-        "lastname": lastname,
-        "createdAt": createdAt.toIso8601String(),
-        "updatedAt": updatedAt.toIso8601String(),
-        "__v": v,
-        "id": atedById,
     };
 }
 
@@ -120,8 +75,6 @@ class Image {
         this.createdAt,
         this.updatedAt,
         this.v,
-        this.createdBy,
-        this.updatedBy,
         this.imageId,
     });
 
@@ -142,8 +95,6 @@ class Image {
     DateTime createdAt;
     DateTime updatedAt;
     int v;
-    String createdBy;
-    String updatedBy;
     String imageId;
 
     factory Image.fromJson(Map<String, dynamic> json) => Image(
@@ -164,8 +115,6 @@ class Image {
         createdAt: DateTime.parse(json["createdAt"]),
         updatedAt: DateTime.parse(json["updatedAt"]),
         v: json["__v"],
-        createdBy: json["created_by"],
-        updatedBy: json["updated_by"],
         imageId: json["id"],
     );
 
@@ -187,8 +136,6 @@ class Image {
         "createdAt": createdAt.toIso8601String(),
         "updatedAt": updatedAt.toIso8601String(),
         "__v": v,
-        "created_by": createdBy,
-        "updated_by": updatedBy,
         "id": imageId,
     };
 }

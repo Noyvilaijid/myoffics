@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
        defaultTransition: Transition.noTransition,
       transitionDuration: Duration(seconds: 0),
       debugShowCheckedModeBanner: false,
+      
       title: 'Official Website',
       initialRoute: AppRoutes.MAINHOME,
       getPages: AppPages.listAppPage,

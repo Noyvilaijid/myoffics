@@ -1,3 +1,6 @@
+// To parse this JSON data, do
+//
+//     final aboutMd = aboutMdFromJson(jsonString);
 
 import 'dart:convert';
 
@@ -14,8 +17,7 @@ class AboutMd {
         this.createdAt,
         this.updatedAt,
         this.v,
-        this.createdBy,
-        this.updatedBy,
+        this.publishedAt,
         this.aboutMdId,
     });
 
@@ -26,8 +28,7 @@ class AboutMd {
     DateTime createdAt;
     DateTime updatedAt;
     int v;
-    AtedBy createdBy;
-    AtedBy updatedBy;
+    DateTime publishedAt;
     String aboutMdId;
 
     factory AboutMd.fromJson(Map<String, dynamic> json) => AboutMd(
@@ -38,8 +39,7 @@ class AboutMd {
         createdAt: DateTime.parse(json["createdAt"]),
         updatedAt: DateTime.parse(json["updatedAt"]),
         v: json["__v"],
-        createdBy: AtedBy.fromJson(json["created_by"]),
-        updatedBy: AtedBy.fromJson(json["updated_by"]),
+        publishedAt: DateTime.parse(json["published_at"]),
         aboutMdId: json["id"],
     );
 
@@ -51,52 +51,7 @@ class AboutMd {
         "createdAt": createdAt.toIso8601String(),
         "updatedAt": updatedAt.toIso8601String(),
         "__v": v,
-        "created_by": createdBy.toJson(),
-        "updated_by": updatedBy.toJson(),
+        "published_at": publishedAt.toIso8601String(),
         "id": aboutMdId,
-    };
-}
-
-class AtedBy {
-    AtedBy({
-        this.id,
-        this.username,
-        this.firstname,
-        this.lastname,
-        this.createdAt,
-        this.updatedAt,
-        this.v,
-        this.atedById,
-    });
-
-    String id;
-    dynamic username;
-    String firstname;
-    String lastname;
-    DateTime createdAt;
-    DateTime updatedAt;
-    int v;
-    String atedById;
-
-    factory AtedBy.fromJson(Map<String, dynamic> json) => AtedBy(
-        id: json["_id"],
-        username: json["username"],
-        firstname: json["firstname"],
-        lastname: json["lastname"],
-        createdAt: DateTime.parse(json["createdAt"]),
-        updatedAt: DateTime.parse(json["updatedAt"]),
-        v: json["__v"],
-        atedById: json["id"],
-    );
-
-    Map<String, dynamic> toJson() => {
-        "_id": id,
-        "username": username,
-        "firstname": firstname,
-        "lastname": lastname,
-        "createdAt": createdAt.toIso8601String(),
-        "updatedAt": updatedAt.toIso8601String(),
-        "__v": v,
-        "id": atedById,
     };
 }

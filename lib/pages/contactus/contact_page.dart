@@ -51,12 +51,11 @@ class _ContactPageState extends State<ContactPage> {
                 mobile: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Expanded(
                         flex: 10,
                         child: Card(
-                          elevation: 7,
+                          elevation: 1,
                           child: Container(
                             padding: EdgeInsets.all(10),
                             decoration: BoxDecoration(
@@ -65,11 +64,13 @@ class _ContactPageState extends State<ContactPage> {
                             ),
                             width: double.infinity,
                             child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 Text(
                                   "ຕິດຕໍ່",
                                   style: TextStyle(
-                                      color: Colors.black,
+                                      color: colorback,
                                       fontWeight: FontWeight.bold,
                                       fontSize: 25,
                                       fontFamily: 'Phetsarath-OT'),
@@ -81,31 +82,29 @@ class _ContactPageState extends State<ContactPage> {
                                   children: [
                                     Icon(
                                       Icons.phone,
-                                      color: Colors.black,
+                                      color: colorback,
                                       size: 25,
                                     ),
                                     SizedBox(
                                       width: 10,
                                     ),
                                     TextTitle(
-                                        color: Colors.black,
+                                        color: colorback,
                                         fontWeight: FontWeight.normal,
                                         size: 16,
                                         text: about[0].contact,
                                         fontFamily: 'Phetsarath-OT'),
-                                    SizedBox(
-                                      width: 30,
-                                    ),
-                                    Expanded(
-                                      child: TextTitle(
-                                          color: Colors.black,
-                                          fontWeight: FontWeight.normal,
-                                          size: 18,
-                                          text: about[0].details,
-                                          fontFamily: 'times'),
-                                    ),
                                   ],
                                 ),
+                                SizedBox(
+                                  width: 30,
+                                ),
+                                TextTitle(
+                                    color: colorback,
+                                    fontWeight: FontWeight.normal,
+                                    size: 18,
+                                    text: about[0].details,
+                                    fontFamily: 'times'),
                                 SizedBox(
                                   height: 15,
                                 ),
@@ -113,31 +112,26 @@ class _ContactPageState extends State<ContactPage> {
                                   children: [
                                     Icon(
                                       Icons.email,
-                                      color: Colors.black,
+                                      color: colorback,
                                       size: 25,
                                     ),
                                     SizedBox(
                                       width: 10,
                                     ),
                                     TextTitle(
-                                        color: Colors.black,
+                                        color: colorback,
                                         fontWeight: FontWeight.normal,
                                         size: 20,
                                         text: about[1].contact,
                                         fontFamily: 'times'),
-                                    SizedBox(
-                                      width: 100,
-                                    ),
-                                    Expanded(
-                                      child: TextTitle(
-                                          color: Colors.black,
-                                          fontWeight: FontWeight.normal,
-                                          size: 20,
-                                          text: about[1].details,
-                                          fontFamily: 'times'),
-                                    ),
                                   ],
                                 ),
+                                TextTitle(
+                                    color: colorback,
+                                    fontWeight: FontWeight.normal,
+                                    size: 20,
+                                    text: about[1].details,
+                                    fontFamily: 'times'),
                                 SizedBox(
                                   height: 15,
                                 ),
@@ -145,31 +139,26 @@ class _ContactPageState extends State<ContactPage> {
                                   children: [
                                     Icon(
                                       Icons.home,
-                                      color: Colors.black,
+                                      color: colorback,
                                       size: 25,
                                     ),
                                     SizedBox(
                                       width: 10,
                                     ),
                                     TextTitle(
-                                        color: Colors.black,
+                                        color: colorback,
                                         fontWeight: FontWeight.normal,
                                         size: 16,
                                         text: about[2].contact,
                                         fontFamily: 'Phetsarath-OT'),
-                                    SizedBox(
-                                      width: 130,
-                                    ),
-                                    Expanded(
-                                      child: TextTitle(
-                                          color: Colors.black,
-                                          fontWeight: FontWeight.normal,
-                                          size: 16,
-                                          text: about[2].details,
-                                          fontFamily: 'Phetsarath-OT'),
-                                    ),
                                   ],
                                 ),
+                                TextTitle(
+                                    color: colorback,
+                                    fontWeight: FontWeight.normal,
+                                    size: 16,
+                                    text: about[2].details,
+                                    fontFamily: 'Phetsarath-OT'),
                                 SizedBox(
                                   height: 15,
                                 ),
@@ -177,13 +166,12 @@ class _ContactPageState extends State<ContactPage> {
                                   padding: EdgeInsets.all(8),
                                   height: 2,
                                   width: double.infinity,
-                                  color: Colors.black,
+                                  color: colorback,
                                 ),
                                 SizedBox(
                                   width: 15,
                                 ),
-                                Expanded(
-                                    child: Container(
+                                Container(
                                   padding: EdgeInsets.only(bottom: 50),
                                   child: Column(
                                     crossAxisAlignment:
@@ -196,7 +184,7 @@ class _ContactPageState extends State<ContactPage> {
                                         "official bestech social midia"
                                             .toUpperCase(),
                                         style: TextStyle(
-                                            color: Colors.black,
+                                            color: colorback,
                                             fontWeight: FontWeight.normal,
                                             fontSize: 18,
                                             fontFamily: 'times'),
@@ -231,7 +219,7 @@ class _ContactPageState extends State<ContactPage> {
                                       )
                                     ],
                                   ),
-                                )),
+                                ),
                               ],
                             ),
                           ),
@@ -286,7 +274,7 @@ class _ContactPageState extends State<ContactPage> {
                                   Text(
                                     "ຕິດຕໍ່",
                                     style: TextStyle(
-                                        color: Colors.black,
+                                        color: colorback,
                                         fontWeight: FontWeight.bold,
                                         fontSize: 25,
                                         fontFamily: 'Phetsarath-OT'),
@@ -303,14 +291,14 @@ class _ContactPageState extends State<ContactPage> {
                                             children: [
                                               Icon(
                                                 Icons.phone,
-                                                color: Colors.black,
+                                                color: colorback,
                                                 size: 25,
                                               ),
                                               SizedBox(
                                                 width: 10,
                                               ),
                                               TextTitle(
-                                                  color: Colors.black,
+                                                  color: colorback,
                                                   fontWeight: FontWeight.normal,
                                                   size: 16,
                                                   text: about[0].contact,
@@ -320,7 +308,7 @@ class _ContactPageState extends State<ContactPage> {
                                               ),
                                               Expanded(
                                                 child: TextTitle(
-                                                    color: Colors.black,
+                                                    color: colorback,
                                                     fontWeight:
                                                         FontWeight.normal,
                                                     size: 18,
@@ -336,14 +324,14 @@ class _ContactPageState extends State<ContactPage> {
                                             children: [
                                               Icon(
                                                 Icons.email,
-                                                color: Colors.black,
+                                                color: colorback,
                                                 size: 25,
                                               ),
                                               SizedBox(
                                                 width: 10,
                                               ),
                                               TextTitle(
-                                                  color: Colors.black,
+                                                  color: colorback,
                                                   fontWeight: FontWeight.normal,
                                                   size: 20,
                                                   text: about[1].contact,
@@ -353,7 +341,7 @@ class _ContactPageState extends State<ContactPage> {
                                               ),
                                               Expanded(
                                                 child: TextTitle(
-                                                    color: Colors.black,
+                                                    color: colorback,
                                                     fontWeight:
                                                         FontWeight.normal,
                                                     size: 20,
@@ -369,14 +357,14 @@ class _ContactPageState extends State<ContactPage> {
                                             children: [
                                               Icon(
                                                 Icons.home,
-                                                color: Colors.black,
+                                                color: colorback,
                                                 size: 25,
                                               ),
                                               SizedBox(
                                                 width: 10,
                                               ),
                                               TextTitle(
-                                                  color: Colors.black,
+                                                  color: colorback,
                                                   fontWeight: FontWeight.normal,
                                                   size: 16,
                                                   text: about[2].contact,
@@ -386,7 +374,7 @@ class _ContactPageState extends State<ContactPage> {
                                               ),
                                               Expanded(
                                                 child: TextTitle(
-                                                    color: Colors.black,
+                                                    color: colorback,
                                                     fontWeight:
                                                         FontWeight.normal,
                                                     size: 16,
@@ -405,7 +393,7 @@ class _ContactPageState extends State<ContactPage> {
                                     padding: EdgeInsets.all(8),
                                     height: 2,
                                     width: double.infinity,
-                                    color: Colors.black,
+                                    color: colorback,
                                   ),
                                   SizedBox(
                                     height: 30,
@@ -418,7 +406,7 @@ class _ContactPageState extends State<ContactPage> {
                                         "official bestech social midia"
                                             .toUpperCase(),
                                         style: TextStyle(
-                                            color: Colors.black,
+                                            color: colorback,
                                             fontWeight: FontWeight.normal,
                                             fontSize: 18,
                                             fontFamily: 'times'),
@@ -431,7 +419,7 @@ class _ContactPageState extends State<ContactPage> {
                                           IconButton(
                                             icon: new Icon(
                                               Icons.facebook,
-                                              color: Colors.black,
+                                              color: colorback,
                                               size: 40,
                                             ),
                                             highlightColor: Colors.pink,
@@ -443,7 +431,7 @@ class _ContactPageState extends State<ContactPage> {
                                           IconButton(
                                             icon: new Icon(
                                               Icons.home,
-                                              color: Colors.black,
+                                              color: colorback,
                                               size: 40,
                                             ),
                                             highlightColor: Colors.pink,
@@ -505,7 +493,7 @@ class _ContactPageState extends State<ContactPage> {
                                   Text(
                                     "ຕິດຕໍ່",
                                     style: TextStyle(
-                                        color: Colors.black,
+                                        color: colorback,
                                         fontWeight: FontWeight.bold,
                                         fontSize: 25,
                                         fontFamily: 'Phetsarath-OT'),
@@ -525,14 +513,14 @@ class _ContactPageState extends State<ContactPage> {
                                                 children: [
                                                   Icon(
                                                     Icons.phone,
-                                                    color: Colors.black,
+                                                    color: colorback,
                                                     size: 25,
                                                   ),
                                                   SizedBox(
                                                     width: 10,
                                                   ),
                                                   TextTitle(
-                                                      color: Colors.black,
+                                                      color: colorback,
                                                       fontWeight:
                                                           FontWeight.normal,
                                                       size: 16,
@@ -544,7 +532,7 @@ class _ContactPageState extends State<ContactPage> {
                                                   ),
                                                   Expanded(
                                                     child: TextTitle(
-                                                        color: Colors.black,
+                                                        color: colorback,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                         size: 18,
@@ -560,14 +548,14 @@ class _ContactPageState extends State<ContactPage> {
                                                 children: [
                                                   Icon(
                                                     Icons.email,
-                                                    color: Colors.black,
+                                                    color: colorback,
                                                     size: 25,
                                                   ),
                                                   SizedBox(
                                                     width: 10,
                                                   ),
                                                   TextTitle(
-                                                      color: Colors.black,
+                                                      color: colorback,
                                                       fontWeight:
                                                           FontWeight.normal,
                                                       size: 20,
@@ -578,7 +566,7 @@ class _ContactPageState extends State<ContactPage> {
                                                   ),
                                                   Expanded(
                                                     child: TextTitle(
-                                                        color: Colors.black,
+                                                        color: colorback,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                         size: 20,
@@ -594,14 +582,14 @@ class _ContactPageState extends State<ContactPage> {
                                                 children: [
                                                   Icon(
                                                     Icons.home,
-                                                    color: Colors.black,
+                                                    color: colorback,
                                                     size: 25,
                                                   ),
                                                   SizedBox(
                                                     width: 10,
                                                   ),
                                                   TextTitle(
-                                                      color: Colors.black,
+                                                      color: colorback,
                                                       fontWeight:
                                                           FontWeight.normal,
                                                       size: 16,
@@ -613,7 +601,7 @@ class _ContactPageState extends State<ContactPage> {
                                                   ),
                                                   Expanded(
                                                     child: TextTitle(
-                                                        color: Colors.black,
+                                                        color: colorback,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                         size: 16,
@@ -629,7 +617,7 @@ class _ContactPageState extends State<ContactPage> {
                                         padding: EdgeInsets.all(8),
                                         height: 250,
                                         width: 2,
-                                        color: Colors.black,
+                                        color: colorback,
                                       ),
                                       SizedBox(
                                         width: 15,
@@ -645,7 +633,7 @@ class _ContactPageState extends State<ContactPage> {
                                               "official bestech social midia"
                                                   .toUpperCase(),
                                               style: TextStyle(
-                                                  color: Colors.black,
+                                                  color: colorback,
                                                   fontWeight: FontWeight.normal,
                                                   fontSize: 18,
                                                   fontFamily: 'times'),
@@ -658,7 +646,7 @@ class _ContactPageState extends State<ContactPage> {
                                                 IconButton(
                                                   icon: new Icon(
                                                     Icons.facebook,
-                                                    color: Colors.black,
+                                                    color: colorback,
                                                     size: 40,
                                                   ),
                                                   highlightColor: Colors.pink,
@@ -670,7 +658,7 @@ class _ContactPageState extends State<ContactPage> {
                                                 IconButton(
                                                   icon: new Icon(
                                                     Icons.home,
-                                                    color: Colors.black,
+                                                    color: colorback,
                                                     size: 40,
                                                   ),
                                                   highlightColor: Colors.pink,

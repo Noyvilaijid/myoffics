@@ -1,3 +1,6 @@
+// To parse this JSON data, do
+//
+//     final teamWork = teamWorkFromJson(jsonString);
 
 import 'dart:convert';
 
@@ -14,8 +17,7 @@ class TeamWork {
         this.createdAt,
         this.updatedAt,
         this.v,
-        this.createdBy,
-        this.updatedBy,
+        this.publishedAt,
         this.teamWorkId,
     });
 
@@ -26,8 +28,7 @@ class TeamWork {
     DateTime createdAt;
     DateTime updatedAt;
     int v;
-    AtedBy createdBy;
-    AtedBy updatedBy;
+    DateTime publishedAt;
     String teamWorkId;
 
     factory TeamWork.fromJson(Map<String, dynamic> json) => TeamWork(
@@ -38,8 +39,7 @@ class TeamWork {
         createdAt: DateTime.parse(json["createdAt"]),
         updatedAt: DateTime.parse(json["updatedAt"]),
         v: json["__v"],
-        createdBy: AtedBy.fromJson(json["created_by"]),
-        updatedBy: AtedBy.fromJson(json["updated_by"]),
+        publishedAt: DateTime.parse(json["published_at"]),
         teamWorkId: json["id"],
     );
 
@@ -51,73 +51,10 @@ class TeamWork {
         "createdAt": createdAt.toIso8601String(),
         "updatedAt": updatedAt.toIso8601String(),
         "__v": v,
-        "created_by": createdBy.toJson(),
-        "updated_by": updatedBy.toJson(),
+        "published_at": publishedAt.toIso8601String(),
         "id": teamWorkId,
     };
 }
-
-class AtedBy {
-    AtedBy({
-        this.id,
-        this.username,
-        this.firstname,
-        this.lastname,
-        this.createdAt,
-        this.updatedAt,
-        this.v,
-        this.atedById,
-    });
-
-    Id id;
-    dynamic username;
-    Firstname firstname;
-    Lastname lastname;
-    DateTime createdAt;
-    DateTime updatedAt;
-    int v;
-    Id atedById;
-
-    factory AtedBy.fromJson(Map<String, dynamic> json) => AtedBy(
-        id: idValues.map[json["_id"]],
-        username: json["username"],
-        firstname: firstnameValues.map[json["firstname"]],
-        lastname: lastnameValues.map[json["lastname"]],
-        createdAt: DateTime.parse(json["createdAt"]),
-        updatedAt: DateTime.parse(json["updatedAt"]),
-        v: json["__v"],
-        atedById: idValues.map[json["id"]],
-    );
-
-    Map<String, dynamic> toJson() => {
-        "_id": idValues.reverse[id],
-        "username": username,
-        "firstname": firstnameValues.reverse[firstname],
-        "lastname": lastnameValues.reverse[lastname],
-        "createdAt": createdAt.toIso8601String(),
-        "updatedAt": updatedAt.toIso8601String(),
-        "__v": v,
-        "id": idValues.reverse[atedById],
-    };
-}
-
-enum Id { THE_613_F03_F2_FE7_C653_B7_DEBAA3_E }
-
-final idValues = EnumValues({
-    "613f03f2fe7c653b7debaa3e": Id.THE_613_F03_F2_FE7_C653_B7_DEBAA3_E
-});
-
-enum Firstname { NOY }
-
-final firstnameValues = EnumValues({
-    "Noy": Firstname.NOY
-});
-
-enum Lastname { VILAIJID }
-
-final lastnameValues = EnumValues({
-    "Vilaijid": Lastname.VILAIJID
-});
 
 class Image {
     Image({
@@ -138,8 +75,6 @@ class Image {
         this.createdAt,
         this.updatedAt,
         this.v,
-        this.createdBy,
-        this.updatedBy,
         this.imageId,
     });
 
@@ -148,8 +83,8 @@ class Image {
     String alternativeText;
     String caption;
     String hash;
-    Ext ext;
-    Mime mime;
+    String ext;
+    String mime;
     double size;
     int width;
     int height;
@@ -160,8 +95,6 @@ class Image {
     DateTime createdAt;
     DateTime updatedAt;
     int v;
-    Id createdBy;
-    Id updatedBy;
     String imageId;
 
     factory Image.fromJson(Map<String, dynamic> json) => Image(
@@ -170,8 +103,8 @@ class Image {
         alternativeText: json["alternativeText"],
         caption: json["caption"],
         hash: json["hash"],
-        ext: extValues.map[json["ext"]],
-        mime: mimeValues.map[json["mime"]],
+        ext: json["ext"],
+        mime: json["mime"],
         size: json["size"].toDouble(),
         width: json["width"],
         height: json["height"],
@@ -182,8 +115,6 @@ class Image {
         createdAt: DateTime.parse(json["createdAt"]),
         updatedAt: DateTime.parse(json["updatedAt"]),
         v: json["__v"],
-        createdBy: idValues.map[json["created_by"]],
-        updatedBy: idValues.map[json["updated_by"]],
         imageId: json["id"],
     );
 
@@ -193,8 +124,8 @@ class Image {
         "alternativeText": alternativeText,
         "caption": caption,
         "hash": hash,
-        "ext": extValues.reverse[ext],
-        "mime": mimeValues.reverse[mime],
+        "ext": ext,
+        "mime": mime,
         "size": size,
         "width": width,
         "height": height,
@@ -205,48 +136,28 @@ class Image {
         "createdAt": createdAt.toIso8601String(),
         "updatedAt": updatedAt.toIso8601String(),
         "__v": v,
-        "created_by": idValues.reverse[createdBy],
-        "updated_by": idValues.reverse[updatedBy],
         "id": imageId,
     };
 }
 
-enum Ext { JPEG }
-
-final extValues = EnumValues({
-    ".jpeg": Ext.JPEG
-});
-
 class Formats {
     Formats({
         this.thumbnail,
-        this.medium,
-        this.small,
-        this.large,
     });
 
-    Small thumbnail;
-    Small medium;
-    Small small;
-    Small large;
+    Thumbnail thumbnail;
 
     factory Formats.fromJson(Map<String, dynamic> json) => Formats(
-        thumbnail: Small.fromJson(json["thumbnail"]),
-        medium: json["medium"] == null ? null : Small.fromJson(json["medium"]),
-        small: Small.fromJson(json["small"]),
-        large: json["large"] == null ? null : Small.fromJson(json["large"]),
+        thumbnail: Thumbnail.fromJson(json["thumbnail"]),
     );
 
     Map<String, dynamic> toJson() => {
         "thumbnail": thumbnail.toJson(),
-        "medium": medium == null ? null : medium.toJson(),
-        "small": small.toJson(),
-        "large": large == null ? null : large.toJson(),
     };
 }
 
-class Small {
-    Small({
+class Thumbnail {
+    Thumbnail({
         this.name,
         this.hash,
         this.ext,
@@ -260,19 +171,19 @@ class Small {
 
     String name;
     String hash;
-    Ext ext;
-    Mime mime;
+    String ext;
+    String mime;
     int width;
     int height;
     double size;
     dynamic path;
     String url;
 
-    factory Small.fromJson(Map<String, dynamic> json) => Small(
+    factory Thumbnail.fromJson(Map<String, dynamic> json) => Thumbnail(
         name: json["name"],
         hash: json["hash"],
-        ext: extValues.map[json["ext"]],
-        mime: mimeValues.map[json["mime"]],
+        ext: json["ext"],
+        mime: json["mime"],
         width: json["width"],
         height: json["height"],
         size: json["size"].toDouble(),
@@ -283,32 +194,12 @@ class Small {
     Map<String, dynamic> toJson() => {
         "name": name,
         "hash": hash,
-        "ext": extValues.reverse[ext],
-        "mime": mimeValues.reverse[mime],
+        "ext": ext,
+        "mime": mime,
         "width": width,
         "height": height,
         "size": size,
         "path": path,
         "url": url,
     };
-}
-
-enum Mime { IMAGE_JPEG }
-
-final mimeValues = EnumValues({
-    "image/jpeg": Mime.IMAGE_JPEG
-});
-
-class EnumValues<T> {
-    Map<String, T> map;
-    Map<T, String> reverseMap;
-
-    EnumValues(this.map);
-
-    Map<T, String> get reverse {
-        if (reverseMap == null) {
-            reverseMap = map.map((k, v) => new MapEntry(v, k));
-        }
-        return reverseMap;
-    }
 }

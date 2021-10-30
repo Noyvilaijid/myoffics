@@ -218,7 +218,7 @@ class _TeamWorkPageState extends State<TeamWorkPage> {
                                               ],
                                             ),
                                           )),
-                                    ]); //.showCursorOnHover.moveUpOnhover;
+                                    ]).showCursorOnHover.moveUpOnhover;
                                   })),
                         )),
                       ],

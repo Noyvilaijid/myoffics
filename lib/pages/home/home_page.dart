@@ -2,14 +2,12 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:myoffice/controller/service.dart';
 import 'dart:async';
-import 'package:myoffice/models/homemd.dart';
 import 'package:http/http.dart' as http;
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:myoffice/models/homemd.dart';
 import 'package:myoffice/responsive/runningapprespon.dart';
 import 'package:myoffice/theme/theme.dart';
-
 var url = Url.url;
-
 class HomePage extends StatefulWidget {
   const HomePage({Key key}) : super(key: key);
   @override
@@ -17,20 +15,19 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final List<HomeMD> images = [];
+  final List<HomeMd> images = [];
   Future gethomedata() async {
     try {
       var data = await http.get(Uri.parse('$url/homepages'));
       if (data.statusCode == 200) {
         var jsonData = data.body;
-        List<HomeMD> listimage = homeModelFromJson(jsonData);
+        List<HomeMd> listimage = homeMdFromJson(jsonData);
         return listimage;
       }
     } catch (e) {
       print(e);
     }
   }
-
   int _current = 0;
   final CarouselController _controller = CarouselController();
   @override
@@ -49,7 +46,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: SafeArea(
           child: ResponsiveWidget(
-        mobile: images.length == 0
+        mobile: images.isEmpty
             ? Center(child: CircularProgressIndicator())
             : Stack(
                 children: [

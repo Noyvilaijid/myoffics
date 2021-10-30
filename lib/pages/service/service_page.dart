@@ -43,6 +43,7 @@ class _ServicePageState extends State<ServicePage> {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
     return Scaffold(
         body: SafeArea(
             child: ResponsiveWidget(
@@ -314,40 +315,40 @@ class _ServicePageState extends State<ServicePage> {
                                         ),
                                       ),
                                     ),
-                                    Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.end,
-                                        children: [
-                                          RaisedButton(
-                                            onPressed: () {
-                                              setState(() {
-                                                if (count >= service.length) {
-                                                  count = service.length;
-                                                } else {
-                                                  count += 3;
-                                                }
-                                              });
-                                            },
-                                            color: menuselect,
-                                            textColor: colorwhite,
-                                            disabledColor: colorblue,
-                                            disabledTextColor: colorwhite,
-                                            disabledElevation: 4,
-                                            elevation: 4,
-                                            hoverColor: colorblue,
-                                            padding: const EdgeInsets.all(14.0),
-                                            child: Text("ເພີ່ມເຕີມ",
-                                                style: TextStyle(
-                                                  color: colorblue,
-                                                  fontSize: 16,
-                                                  fontFamily: 'Phetsarath-OT',
-                                                )),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
+                                    // Padding(
+                                    //   padding: const EdgeInsets.all(8.0),
+                                    //   child: Row(
+                                    //     mainAxisAlignment:
+                                    //         MainAxisAlignment.end,
+                                    //     children: [
+                                    //       RaisedButton(
+                                    //         onPressed: () {
+                                    //           setState(() {
+                                    //             if (count >= service.length) {
+                                    //               count = service.length;
+                                    //             } else {
+                                    //               count += 3;
+                                    //             }
+                                    //           });
+                                    //         },
+                                    //         color: menuselect,
+                                    //         textColor: colorwhite,
+                                    //         disabledColor: colorblue,
+                                    //         disabledTextColor: colorwhite,
+                                    //         disabledElevation: 4,
+                                    //         elevation: 4,
+                                    //         hoverColor: colorblue,
+                                    //         padding: const EdgeInsets.all(14.0),
+                                    //         child: Text("ເພີ່ມເຕີມ",
+                                    //             style: TextStyle(
+                                    //               color: colorblue,
+                                    //               fontSize: 16,
+                                    //               fontFamily: 'Phetsarath-OT',
+                                    //             )),
+                                    //       ),
+                                    //     ],
+                                    //   ),
+                                    // ),
                                     SizedBox(
                                       height: 15,
                                       width: 10,
@@ -429,7 +430,7 @@ class _ServicePageState extends State<ServicePage> {
                             scrollDirection: Axis.vertical,
                             gridDelegate:
                                 SliverGridDelegateWithFixedCrossAxisCount(
-                                    crossAxisCount: 3,
+                                    crossAxisCount: width <= 1500 ? 2 : 3,
                                     mainAxisSpacing: 10,
                                     crossAxisSpacing: 10),
                             itemCount: count >= service.length
@@ -444,7 +445,7 @@ class _ServicePageState extends State<ServicePage> {
                                 child: Column(
                                   children: [
                                     Expanded(
-                                        flex: 2,
+                                        flex: 6,
                                         child: Container(
                                           child: CachedNetworkImage(
                                             imageUrl: url +
@@ -468,7 +469,7 @@ class _ServicePageState extends State<ServicePage> {
                                           ),
                                         )),
                                     Expanded(
-                                      flex: 1,
+                                      flex: 3,
                                       child: ListView(
                                         children: [
                                           Padding(
@@ -497,38 +498,38 @@ class _ServicePageState extends State<ServicePage> {
                                         ],
                                       ),
                                     ),
-                                    Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.end,
-                                        children: [
-                                          RaisedButton(
-                                            onPressed: () {},
-                                            color: colorblue,
-                                            textColor: colorblue,
-                                            disabledColor: colorblue,
-                                            disabledTextColor: colorwhite,
-                                            disabledElevation: 4,
-                                            elevation: 4,
-                                            hoverColor: colorgray,
-                                            padding: const EdgeInsets.all(14.0),
-                                            child: Text("ເພີ່ມເຕີມ",
-                                                style: TextStyle(
-                                                  color: colorwhite,
-                                                  fontSize: 16,
-                                                  fontFamily: 'Phetsarath-OT',
-                                                )),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 15,
-                                    )
+                                    // Padding(
+                                    //   padding: const EdgeInsets.all(8.0),
+                                    //   child: Row(
+                                    //     mainAxisAlignment:
+                                    //         MainAxisAlignment.end,
+                                    //     children: [
+                                    //       RaisedButton(
+                                    //         onPressed: () {},
+                                    //         color: colorblue,
+                                    //         textColor: colorblue,
+                                    //         disabledColor: colorblue,
+                                    //         disabledTextColor: colorwhite,
+                                    //         disabledElevation: 4,
+                                    //         elevation: 4,
+                                    //         hoverColor: colorgray,
+                                    //         padding: const EdgeInsets.all(14.0),
+                                    //         child: Text("ເພີ່ມເຕີມ",
+                                    //             style: TextStyle(
+                                    //               color: colorwhite,
+                                    //               fontSize: 16,
+                                    //               fontFamily: 'Phetsarath-OT',
+                                    //             )),
+                                    //       ),
+                                    //     ],
+                                    //   ),
+                                    // ),
+                                    // SizedBox(
+                                    //   height: 15,
+                                    // )
                                   ],
                                 ),
-                              ); //.showCursorOnHover.moveUpOnhover;
+                              ).showCursorOnHover.moveUpOnhover;
                             }),
                       ),
                     ),
@@ -567,7 +568,7 @@ class _ServicePageState extends State<ServicePage> {
                                     )),
                               ),
                             ),
-                          ) //.showCursorOnHover.moveUpOnhover,
+                          ).showCursorOnHover.moveUpOnhover,
                         ],
                       ),
                     ),

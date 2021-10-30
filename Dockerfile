@@ -12,8 +12,8 @@ RUN flutter upgrade
 RUN flutter config --enable-web
 # Run flutter doctor
 # Copy the app files to the container
-#  COPY . /usr/local/bin/app
- RUN git clone https://github.com/Noyvilaijid/officweb.git /usr/local/bin/app
+ COPY . /usr/local/bin/app
+#  RUN git clone https://github.com/Noyvilaijid/officweb.git /usr/local/bin/app
 # Set the working directory to the app files within the container
 WORKDIR /usr/local/bin/app
 # Get App Dependencies
