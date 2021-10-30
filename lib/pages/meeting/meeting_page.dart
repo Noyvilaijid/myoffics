@@ -406,52 +406,54 @@ class _MeetingPageState extends State<MeetingPage> {
                   children: [
                     Expanded(
                       child: Container(
-                        width: double.infinity,
-                        height: 500,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Center(
-                              child: Container(
-                                width: 100,
-                                height: 100,
-                                child: Image.asset(
-                                  "assets/bestech.png",
-                                  width: 150,
-                                  height: 80,
+                        // width: double.infinity,
+                        // height: 500,
+                        child: SingleChildScrollView(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Center(
+                                child: Container(
+                                  width: 100,
+                                  height: 100,
+                                  child: Image.asset(
+                                    "assets/bestech.png",
+                                    width: 150,
+                                    height: 80,
+                                  ),
                                 ),
                               ),
-                            ),
-                            TableCalendar(
-                              calendarStyle: CalendarStyle(
-                                  todayStyle: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 18,
-                                      fontFamily: 'times'),
-                                  todayColor: Colors.red,
-                                  selectedColor: Colors.green),
-                              calendarController: _controller,
-                              startingDayOfWeek: StartingDayOfWeek.monday,
-                              onDaySelected: (day, events, holidays) {
-                                date = day.toIso8601String();
-                              },
-                              builders: CalendarBuilders(
-                                selectedDayBuilder: (context, date, events) =>
-                                    Container(
-                                        alignment: Alignment.center,
-                                        decoration: BoxDecoration(
-                                            color: Colors.green,
-                                            shape: BoxShape.circle),
-                                        child: Text(
-                                          date.day.toString(),
-                                          style: TextStyle(
-                                              fontSize: 20,
-                                              fontWeight: FontWeight.bold,
-                                              fontFamily: 'times'),
-                                        )),
+                              TableCalendar(
+                                calendarStyle: CalendarStyle(
+                                    todayStyle: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 18,
+                                        fontFamily: 'times'),
+                                    todayColor: Colors.red,
+                                    selectedColor: Colors.green),
+                                calendarController: _controller,
+                                startingDayOfWeek: StartingDayOfWeek.monday,
+                                onDaySelected: (day, events, holidays) {
+                                  date = day.toIso8601String();
+                                },
+                                builders: CalendarBuilders(
+                                  selectedDayBuilder: (context, date, events) =>
+                                      Container(
+                                          alignment: Alignment.center,
+                                          decoration: BoxDecoration(
+                                              color: Colors.green,
+                                              shape: BoxShape.circle),
+                                          child: Text(
+                                            date.day.toString(),
+                                            style: TextStyle(
+                                                fontSize: 20,
+                                                fontWeight: FontWeight.bold,
+                                                fontFamily: 'times'),
+                                          )),
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
                     ),

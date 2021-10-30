@@ -253,6 +253,7 @@ class _PastWorkState extends State<PastWork> {
                           options: CarouselOptions(
                               height: 550,
                               autoPlay: true,
+
                               // reverse: true,
                               viewportFraction: 1,
                               autoPlayInterval: Duration(seconds: 5)))
@@ -265,7 +266,7 @@ class _PastWorkState extends State<PastWork> {
   }
 
   Widget builderImage(String urls, int index) => Container(
-        height: 500,
+        height: 550,
         width: double.infinity,
         margin: EdgeInsets.symmetric(horizontal: 12),
         child: CachedNetworkImage(

@@ -44,11 +44,7 @@ class Header extends StatelessWidget {
                           _controller.openOrCloseDrawer();
                         },
                       ),
-                    Image.asset(
-                      "assets/bestech.png",
-                      width: 150,
-                      height: 80,
-                    ),
+                    Image.asset("assets/bestech.png", width: 80, height: 80),
                     Spacer(),
                     if (Responsive.isDesktop(context))
                       WebMenu(
@@ -65,15 +61,6 @@ class Header extends StatelessWidget {
                 ),
                 if (Responsive.isMobile(context))
                   SizedBox(height: kDefaultPadding),
-                // AppMenu(
-                //   forcusOnLastOne: forcusOnLastOne,
-                //   forcusOnLastTwo: forcusOnLastwo,
-                //   forcusOnLastThree: forcusOnLastThree,
-                //   forcusOnLastfour: forcusOnLastfour,
-                //   forcusOnLastfine: forcusOnLastfine,
-                //   forcusOnLastsix: forcusOnLastsix,
-                //   forcusOnLastseven: forcusOnLastseven,
-                // )
               ],
             ),
           )

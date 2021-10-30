@@ -89,56 +89,53 @@ class _HomeMainState extends State<HomeMain> {
       ),
       body: RefreshIndicator(
         onRefresh: refresh,
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Container(
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  Container(
-                    key: datekey1,
-                    height: 650,
-                    width: double.infinity,
-                    child: HomePage(),
-                  ),
-                  Container(
-                    key: datekey2,
-                    height: 650,
-                    width: double.infinity,
-                    child: AboutPage(),
-                  ),
-                  Container(
-                    key: datekey3,
-                    height: 650,
-                    width: double.infinity,
-                    child: ServicePage(),
-                  ),
-                  Container(
-                    key: datekey4,
-                    height: 650,
-                    width: double.infinity,
-                    child: PastWork(),
-                  ),
-                  Container(
-                    key: datekey5,
-                    height: 650,
-                    width: double.infinity,
-                    child: TeamWorkPage(),
-                  ),
-                  Container(
-                    key: datekey6,
-                    height: 650,
-                    width: double.infinity,
-                    child: MeetingPage(),
-                  ),
-                  Container(
-                    key: datekey7,
-                    height: 650,
-                    width: double.infinity,
-                    child: ContactPage(),
-                  )
-                ],
-              ),
+        child: Container(
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Container(
+                  key: datekey1,
+                  height: 650,
+                  width: double.infinity,
+                  child: HomePage(),
+                ),
+                Container(
+                  key: datekey2,
+                  height: 650,
+                  width: double.infinity,
+                  child: AboutPage(),
+                ),
+                Container(
+                  key: datekey3,
+                  height: 650,
+                  width: double.infinity,
+                  child: ServicePage(),
+                ),
+                Container(
+                  key: datekey4,
+                  height: 650,
+                  width: double.infinity,
+                  child: PastWork(),
+                ),
+                Container(
+                  key: datekey5,
+                  height: 650,
+                  width: double.infinity,
+                  child: TeamWorkPage(),
+                ),
+                Container(
+                  key: datekey6,
+                  height: 650,
+                  width: double.infinity,
+                  child: MeetingPage(),
+                ),
+                Container(
+                  key: datekey7,
+                  height: 650,
+                  width: double.infinity,
+                  child: ContactPage(),
+                )
+              ],
             ),
           ),
         ),

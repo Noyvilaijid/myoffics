@@ -1,11 +1,11 @@
 {
-    "name": "myoffice",
-    "short_name": "myoffice",
+    "name": "Bestech Saas",
+    "short_name": "Bestech Saas",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "Bestech Saas",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

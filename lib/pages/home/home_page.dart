@@ -7,7 +7,9 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:myoffice/models/homemd.dart';
 import 'package:myoffice/responsive/runningapprespon.dart';
 import 'package:myoffice/theme/theme.dart';
+
 var url = Url.url;
+
 class HomePage extends StatefulWidget {
   const HomePage({Key key}) : super(key: key);
   @override
@@ -28,6 +30,7 @@ class _HomePageState extends State<HomePage> {
       print(e);
     }
   }
+
   int _current = 0;
   final CarouselController _controller = CarouselController();
   @override
