@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use, non_constant_identifier_names, missing_return
+
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:myoffice/controller/service.dart';
@@ -5,6 +7,8 @@ import 'package:myoffice/models/Contactmd.dart';
 import 'package:myoffice/responsive/runningapprespon.dart';
 import 'package:http/http.dart' as http;
 import 'package:myoffice/theme/theme.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'dart:io' show Platform;
 
 class ContactPage extends StatefulWidget {
   const ContactPage({Key key}) : super(key: key);
@@ -15,7 +19,6 @@ class ContactPage extends StatefulWidget {
 class _ContactPageState extends State<ContactPage> {
   var url = Url.url;
   bool loading = true;
-  // ignore: deprecated_member_use
   List<Contact> about = new List();
   // ignore: missing_return
   Future<List<Contact>> getdata() async {
@@ -32,6 +35,36 @@ class _ContactPageState extends State<ContactPage> {
       }
     } catch (e) {
       print(e);
+    }
+  }
+
+  Future<String> Openfb() async {
+    String fbProtocolUrl =
+        'https://www.facebook.com/BesTech.la/?ref=pages_you_manage';
+    String fallbackUrl =
+        'https://www.facebook.com/BesTech.la/?ref=pages_you_manage';
+    try {
+      bool launched = await launch(fbProtocolUrl, forceSafariVC: false);
+
+      if (!launched) {
+        await launch(fallbackUrl, forceSafariVC: false);
+      }
+    } catch (e) {
+      await launch(fallbackUrl, forceSafariVC: false);
+    }
+  }
+
+  Future<String> OpenIg() async {
+    String fbProtocolUrl = 'https://www.instagram.com/bbestech/';
+    String fallbackUrl = 'https://www.instagram.com/bbestech/';
+    try {
+      bool launched = await launch(fbProtocolUrl, forceSafariVC: false);
+
+      if (!launched) {
+        await launch(fallbackUrl, forceSafariVC: false);
+      }
+    } catch (e) {
+      await launch(fallbackUrl, forceSafariVC: false);
     }
   }
 
@@ -118,12 +151,15 @@ class _ContactPageState extends State<ContactPage> {
                                     SizedBox(
                                       width: 10,
                                     ),
-                                    TextTitle(
-                                        color: colorback,
-                                        fontWeight: FontWeight.normal,
-                                        size: 20,
-                                        text: about[1].contact,
-                                        fontFamily: 'times'),
+                                    InkWell(
+                                      onTap: () {},
+                                      child: TextTitle(
+                                          color: colorback,
+                                          fontWeight: FontWeight.normal,
+                                          size: 20,
+                                          text: about[1].contact,
+                                          fontFamily: 'times'),
+                                    ),
                                   ],
                                 ),
                                 TextTitle(
@@ -193,27 +229,33 @@ class _ContactPageState extends State<ContactPage> {
                                         height: 15,
                                       ),
                                       Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
                                         children: [
-                                          IconButton(
-                                            icon: new Icon(
-                                              Icons.facebook,
-                                              color: Colors.green,
-                                              size: 40,
+                                          InkWell(
+                                            onTap: () {
+                                              Openfb();
+                                            },
+                                            child: Image.asset(
+                                              'assets/fb.png',
+                                              height: 50,
+                                              width: 50,
                                             ),
-                                            highlightColor: Colors.pink,
-                                            onPressed: () {},
                                           ),
                                           SizedBox(
-                                            width: 10,
+                                            width: 15,
                                           ),
-                                          IconButton(
-                                            icon: new Icon(
-                                              Icons.home,
-                                              color: Colors.green,
-                                              size: 40,
+                                          InkWell(
+                                            onTap: () {
+                                              OpenIg();
+                                            },
+                                            child: Image.asset(
+                                              'assets/ig.png',
+                                              height: 50,
+                                              width: 50,
                                             ),
-                                            highlightColor: Colors.pink,
-                                            onPressed: () {},
                                           ),
                                         ],
                                       )
@@ -254,7 +296,7 @@ class _ContactPageState extends State<ContactPage> {
                   ),
                 ),
                 tablet: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 100),
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: Container(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -415,27 +457,33 @@ class _ContactPageState extends State<ContactPage> {
                                         height: 15,
                                       ),
                                       Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
                                         children: [
-                                          IconButton(
-                                            icon: new Icon(
-                                              Icons.facebook,
-                                              color: colorback,
-                                              size: 40,
+                                          InkWell(
+                                            onTap: () {
+                                              Openfb();
+                                            },
+                                            child: Image.asset(
+                                              'assets/fb.png',
+                                              height: 50,
+                                              width: 50,
                                             ),
-                                            highlightColor: Colors.pink,
-                                            onPressed: () {},
                                           ),
                                           SizedBox(
-                                            width: 10,
+                                            width: 15,
                                           ),
-                                          IconButton(
-                                            icon: new Icon(
-                                              Icons.home,
-                                              color: colorback,
-                                              size: 40,
+                                          InkWell(
+                                            onTap: () {
+                                              OpenIg();
+                                            },
+                                            child: Image.asset(
+                                              'assets/ig.png',
+                                              height: 50,
+                                              width: 50,
                                             ),
-                                            highlightColor: Colors.pink,
-                                            onPressed: () {},
                                           ),
                                         ],
                                       )
@@ -642,27 +690,33 @@ class _ContactPageState extends State<ContactPage> {
                                               height: 15,
                                             ),
                                             Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
                                               children: [
-                                                IconButton(
-                                                  icon: new Icon(
-                                                    Icons.facebook,
-                                                    color: colorback,
-                                                    size: 40,
+                                                InkWell(
+                                                  onTap: () {
+                                                    Openfb();
+                                                  },
+                                                  child: Image.asset(
+                                                    'assets/fb.png',
+                                                    height: 50,
+                                                    width: 50,
                                                   ),
-                                                  highlightColor: Colors.pink,
-                                                  onPressed: () {},
                                                 ),
                                                 SizedBox(
-                                                  width: 10,
+                                                  width: 15,
                                                 ),
-                                                IconButton(
-                                                  icon: new Icon(
-                                                    Icons.home,
-                                                    color: colorback,
-                                                    size: 40,
+                                                InkWell(
+                                                  onTap: () {
+                                                    OpenIg();
+                                                  },
+                                                  child: Image.asset(
+                                                    'assets/ig.png',
+                                                    height: 50,
+                                                    width: 50,
                                                   ),
-                                                  highlightColor: Colors.pink,
-                                                  onPressed: () {},
                                                 ),
                                               ],
                                             )

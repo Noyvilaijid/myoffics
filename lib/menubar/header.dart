@@ -44,6 +44,7 @@ class Header extends StatelessWidget {
                           _controller.openOrCloseDrawer();
                         },
                       ),
+                      SizedBox(width: 20,),
                     Image.asset("assets/bestech.png", width: 80, height: 80),
                     Spacer(),
                     if (Responsive.isDesktop(context))
@@ -59,8 +60,8 @@ class Header extends StatelessWidget {
                     Spacer(),
                   ],
                 ),
-                if (Responsive.isMobile(context))
-                  SizedBox(height: kDefaultPadding),
+                // if (Responsive.isMobile(context))
+                //   SizedBox(height: 0),
               ],
             ),
           )

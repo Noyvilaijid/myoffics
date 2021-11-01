@@ -70,26 +70,27 @@ class _ServicePageState extends State<ServicePage> {
                       height: 20,
                     ),
                     Expanded(
-                      child: Container(
-                        width: double.infinity,
-                        child: GridView.builder(
-                            scrollDirection: Axis.vertical,
-                            gridDelegate:
-                                SliverGridDelegateWithFixedCrossAxisCount(
-                                    crossAxisCount: 1,
-                                    crossAxisSpacing: 20,
-                                    mainAxisSpacing: 20),
-                            itemCount: count >= service.length
-                                ? service.length
-                                : count,
-                            itemBuilder: (contect, index) {
-                              return Card(
-                                margin: EdgeInsets.all(10),
+                      child: GridView.builder(
+                          scrollDirection: Axis.horizontal,
+                          gridDelegate:
+                              SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 1,
+                                  crossAxisSpacing: 20,
+                                  mainAxisSpacing: 20),
+                          itemCount:
+                              count >= service.length ? service.length : count,
+                          itemBuilder: (contect, index) {
+                            return Card(
+                              elevation: 5,
+                              child: Padding(
+                                padding: const EdgeInsets.all(10),
                                 child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  // crossAxisAlignment:
+                                  //     CrossAxisAlignment.center,
                                   children: [
-                                    Expanded(
-                                        child: Container(
+                                    Container(
+                                      width: 300,
+                                      height: 300,
                                       child: CachedNetworkImage(
                                         imageUrl:
                                             url + service[index].images[0].url,
@@ -108,29 +109,37 @@ class _ServicePageState extends State<ServicePage> {
                                         errorWidget: (context, url, error) =>
                                             Icon(Icons.error),
                                       ),
-                                    )),
-                                    Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Container(
-                                        width: double.infinity,
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text(service[index].title,
-                                                style: TextStyle(
-                                                    color: colorback,
-                                                    fontSize: 18,
-                                                    fontFamily: 'Phetsarath-OT',
-                                                    fontWeight:
-                                                        FontWeight.bold)),
-                                            Text(service[index].content,
-                                                style: TextStyle(
-                                                  color: colorback,
-                                                  fontSize: 16,
-                                                  fontFamily: 'Phetsarath-OT',
-                                                ))
-                                          ],
+                                    ),
+                                    Expanded(
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Container(
+                                          child: SingleChildScrollView(
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.stretch,
+                                              children: [
+                                                Text(service[index].title,
+                                                    textAlign:
+                                                        TextAlign.justify,
+                                                    style: TextStyle(
+                                                        color: colorback,
+                                                        fontSize: 18,
+                                                        fontFamily:
+                                                            'Phetsarath-OT',
+                                                        fontWeight:
+                                                            FontWeight.bold)),
+                                                Text(service[index].content,
+                                                    
+                                                    style: TextStyle(
+                                                      color: colorback,
+                                                      fontSize: 16,
+                                                      fontFamily:
+                                                          'Phetsarath-OT',
+                                                    ))
+                                              ],
+                                            ),
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -177,9 +186,9 @@ class _ServicePageState extends State<ServicePage> {
                                     // )
                                   ],
                                 ),
-                              );
-                            }),
-                      ),
+                              ),
+                            );
+                          }),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
@@ -248,10 +257,10 @@ class _ServicePageState extends State<ServicePage> {
                       child: Container(
                         width: double.infinity,
                         child: GridView.builder(
-                            scrollDirection: Axis.vertical,
+                            scrollDirection: Axis.horizontal,
                             gridDelegate:
                                 SliverGridDelegateWithFixedCrossAxisCount(
-                                    crossAxisCount: 2,
+                                    crossAxisCount: 1,
                                     crossAxisSpacing: 20,
                                     mainAxisSpacing: 20),
                             itemCount: count >= service.length

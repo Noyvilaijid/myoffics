@@ -4,7 +4,6 @@ import 'package:http/http.dart' as http;
 import 'package:myoffice/models/aboutmd.dart';
 import 'package:myoffice/responsive/runningapprespon.dart';
 import 'package:myoffice/theme/theme.dart';
-
 class AboutPage extends StatefulWidget {
   const AboutPage({Key key}) : super(key: key);
   @override
@@ -111,7 +110,7 @@ class _AboutPageState extends State<AboutPage> {
                                 TextTitle(
                                   text: item.title,
                                   color: colorback,
-                                  size: 25,
+                                  size: 22,
                                   fontWeight: FontWeight.bold,
                                   font: 'Phetsarath-OT',
                                 ),
@@ -121,14 +120,14 @@ class _AboutPageState extends State<AboutPage> {
                                 TextTitle(
                                   text: item.company.toUpperCase(),
                                   color: colorback,
-                                  size: 25,
+                                  size: 18,
                                   fontWeight: FontWeight.bold,
                                   font: 'times',
                                 ),
                                 TextTitle(
                                   text: item.content,
                                   color: colorback,
-                                  size: 20,
+                                  size: 16,
                                   fontWeight: FontWeight.normal,
                                   font: 'Phetsarath-OT',
                                 ),

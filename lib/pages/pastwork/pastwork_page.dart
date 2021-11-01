@@ -32,7 +32,7 @@ class _PastWorkState extends State<PastWork> {
   void initState() {
     super.initState();
     getdata().then((value) {
-      setState(() {
+       setState(() {
         pastwork.addAll(value);
       });
     });
@@ -107,7 +107,7 @@ class _PastWorkState extends State<PastWork> {
                             );
                           },
                           options: CarouselOptions(
-                              height: MediaQuery.of(context).size.height / 1.5,
+                              height: 450,
                               autoPlay: true,
                               // reverse: true,
                               viewportFraction: 1,

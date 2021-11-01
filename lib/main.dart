@@ -3,11 +3,9 @@ import 'package:get/get.dart';
 import 'package:myoffice/theme/theme.dart';
 import 'router/router_pages.dart';
 import 'router/router_route.dart';
-
 void main() {
   runApp(MyApp());
 }
-
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

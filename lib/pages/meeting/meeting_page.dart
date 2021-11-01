@@ -90,7 +90,7 @@ class _MeetingPageState extends State<MeetingPage> {
                 ),
                 Center(
                   child: Container(
-                    width: 350,
+                    width: MediaQuery.of(context).size.width/1,
                     height: 150,
                     child: SingleChildScrollView(
                       child: Padding(

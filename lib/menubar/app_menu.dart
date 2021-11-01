@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:myoffice/controller/navigetorbar.dart';
-import 'package:myoffice/extensions/hover_extension.dart';
 import 'package:myoffice/theme/theme.dart';
 
 class AppMenu extends StatelessWidget {
@@ -71,7 +70,7 @@ class AppMenu extends StatelessWidget {
                       forcusOnLastseven();
                     }
                   },
-                ).showCursorOnHover.moveUpOnhover,
+                ),
               ),
             ],
           ),

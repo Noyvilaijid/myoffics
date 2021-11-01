@@ -37,8 +37,8 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     gethomedata().then((value) {
-      setState(() {
-        images.addAll(value);
+       setState(() {
+       images.addAll(value);
       });
     });
   }
@@ -69,8 +69,8 @@ class _HomePageState extends State<HomePage> {
                                 decoration: BoxDecoration(
                                     shape: BoxShape.circle,
                                     color: entry.key == _current
-                                        ? colorRED
-                                        : colorblue),
+                                        ? menuselect
+                                      : colorback),
                               ),
                             );
                           }).toList(),
@@ -160,8 +160,8 @@ class _HomePageState extends State<HomePage> {
                                 decoration: BoxDecoration(
                                     shape: BoxShape.circle,
                                     color: entry.key == _current
-                                        ? colorback
-                                        : colorblue),
+                                         ? menuselect
+                                      : colorback),
                               ),
                             );
                           }).toList(),
@@ -175,7 +175,7 @@ class _HomePageState extends State<HomePage> {
                         child: CarouselSlider(
                       options: CarouselOptions(
                         onPageChanged: (index, reason) {
-                          setState(() {
+                         setState(() {
                             _current = index;
                           });
                         },
@@ -262,7 +262,7 @@ class _HomePageState extends State<HomePage> {
                           child: CarouselSlider(
                         options: CarouselOptions(
                             onPageChanged: (index, reason) {
-                              setState(() {
+                             setState(() {
                                 _current = index;
                               });
                             },

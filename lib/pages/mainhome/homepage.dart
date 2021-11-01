@@ -31,7 +31,6 @@ class _HomeMainState extends State<HomeMain> {
     await Future.delayed(Duration(seconds: 3));
     Get.offAllNamed("/");
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
