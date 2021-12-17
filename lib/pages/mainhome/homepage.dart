@@ -9,15 +9,13 @@ import 'package:myoffice/pages/home/home_page.dart';
 import 'package:myoffice/pages/meeting/meeting_page.dart';
 import 'package:myoffice/pages/pastwork/pastwork_page.dart';
 import 'package:myoffice/pages/service/service_page.dart';
-import 'package:myoffice/pages/teamwork/teamwork_page.dart';
+import 'package:myoffice/pages/teamwork/widgetteamwork.dart';
 import 'package:myoffice/theme/theme.dart';
-
 class HomeMain extends StatefulWidget {
   const HomeMain({Key key}) : super(key: key);
   @override
   _HomeMainState createState() => _HomeMainState();
 }
-
 class _HomeMainState extends State<HomeMain> {
   final Navigetorbar _controller = Get.put(Navigetorbar());
   final datekey1 = new GlobalKey();
@@ -120,7 +118,7 @@ class _HomeMainState extends State<HomeMain> {
                   key: datekey5,
                   height: 650,
                   width: double.infinity,
-                  child: TeamWorkPage(),
+                  child: TeamWorkPages(),
                 ),
                 Container(
                   key: datekey6,

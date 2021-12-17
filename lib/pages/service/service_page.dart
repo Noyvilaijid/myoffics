@@ -364,7 +364,7 @@ class _ServicePageState extends State<ServicePage> {
                                     )
                                   ],
                                 ),
-                              ); //.showCursorOnHover.moveUpOnhover;
+                              ).showCursorOnHover.moveUpOnhover;
                             }),
                       ),
                     ),
@@ -538,7 +538,7 @@ class _ServicePageState extends State<ServicePage> {
                                     // )
                                   ],
                                 ),
-                              ).showCursorOnHover.moveUpOnhover;
+                              );//.showCursorOnHover.moveUpOnhover;
                             }),
                       ),
                     ),
@@ -577,7 +577,7 @@ class _ServicePageState extends State<ServicePage> {
                                     )),
                               ),
                             ),
-                          ).showCursorOnHover.moveUpOnhover,
+                          ),//.showCursorOnHover.moveUpOnhover,
                         ],
                       ),
                     ),

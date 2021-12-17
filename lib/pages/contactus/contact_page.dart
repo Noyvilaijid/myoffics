@@ -8,7 +8,7 @@ import 'package:myoffice/responsive/runningapprespon.dart';
 import 'package:http/http.dart' as http;
 import 'package:myoffice/theme/theme.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'dart:io' show Platform;
+// import 'dart:io' show Platform;
 
 class ContactPage extends StatefulWidget {
   const ContactPage({Key key}) : super(key: key);
@@ -20,7 +20,6 @@ class _ContactPageState extends State<ContactPage> {
   var url = Url.url;
   bool loading = true;
   List<Contact> about = new List();
-  // ignore: missing_return
   Future<List<Contact>> getdata() async {
     try {
       var data = await http.get(Uri.parse('$url/contacts'));
@@ -151,15 +150,12 @@ class _ContactPageState extends State<ContactPage> {
                                     SizedBox(
                                       width: 10,
                                     ),
-                                    InkWell(
-                                      onTap: () {},
-                                      child: TextTitle(
-                                          color: colorback,
-                                          fontWeight: FontWeight.normal,
-                                          size: 20,
-                                          text: about[1].contact,
-                                          fontFamily: 'times'),
-                                    ),
+                                    TextTitle(
+                                        color: colorback,
+                                        fontWeight: FontWeight.normal,
+                                        size: 20,
+                                        text: about[1].contact,
+                                        fontFamily: 'times'),
                                   ],
                                 ),
                                 TextTitle(

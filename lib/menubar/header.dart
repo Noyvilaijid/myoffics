@@ -60,8 +60,8 @@ class Header extends StatelessWidget {
                     Spacer(),
                   ],
                 ),
-                // if (Responsive.isMobile(context))
-                //   SizedBox(height: 0),
+                if (Responsive.isMobile(context))
+                  SizedBox(height: 20),
               ],
             ),
           )

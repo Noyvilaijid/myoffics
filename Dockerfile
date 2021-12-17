@@ -13,12 +13,12 @@ RUN flutter config --enable-web
 # Copy the app files to the container
 #  COPY . /usr/local/bin/app
 RUN git clone https://github.com/Noyvilaijid/myoffics.git /usr/local/bin/app
-# Set the working directory to the app files within--web-renderer html the container
+# Set the working directory to the app files within--release --web-renderer html the container
 WORKDIR /usr/local/bin/app
 # Get App Dependencies
 RUN flutter pub get
 # Build the app for the web
-RUN flutter build web 
+RUN flutter build web --release --web-renderer html
 # Document the exposed port
 EXPOSE 4040
 # Set the server startup script as executable
